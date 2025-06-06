@@ -1,1 +1,45 @@
-nm
+script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
+--PS99 LOADER!!
+
+			-- INSERT YOUR CONFIG HERE --
+getgenv().GEVENT_FPS  = 5
+getgenv().GGFX_MODE = 1
+getgenv().GZONE_TO = 999
+
+getgenv().GPROGRESS_MODE = "Hybrid"
+getgenv().GRANK_TO = 99
+getgenv().GZONE_TO = 999 
+getgenv().GMAX_EGG_SLOTS = 99
+getgenv().GMAX_EQUIP_SLOTS = 99
+getgenv().GMAX_ZONE_UPGRADE_COST = 20000000
+getgenv().GMASTERY_TO_MAX = "Pets"
+getgenv().GEVENT_ITEMS_TO_USE = {"Mini Pinata","Party Box","Mini Lucky Block","Comet"}
+getgenv().GUSE_SPRINKLERS = true 
+getgenv().GUSE_FLAGS = {"Fortune Flag"}
+
+getgenv().GPOTIONS = {"The Cocktail","Lucky","Treasure Hunter","Walkspeed","Diamonds","Damage"}
+getgenv().GPOTIONS_MAX_TIER = 19
+
+getgenv().GUSE_ULTIMATES = {"Tsunami","Tornado","Lightning Storm"}
+
+getgenv().GENCHANTS = {"Breakable Mayhem","Lucky Eggs","Huge Hunter","Diamonds","Treasure Hunter","Explosive","Super Lightning","Diamonds","Large Taps"}
+
+getgenv().GDAYCARE = true
+getgenv().GHATCH_CHARGED_EGGS = false
+getgenv().GCLEAR_FAVORITE_PETS = true
+
+getgenv().GHOLD_GIFTS = false
+getgenv().GHOLD_BUNDLES = false
+getgenv().GLOOTBOXES = {"Locked Hype Egg"}
+getgenv().GCONSUME_CHARMS = true
+------------------------------------------------
+
+getgenv().GAUTO_UPGRADE_PETS = true
+
+-----------------------------------------------
+getgenv().GHUGE_COUNT = 500
+
+
+
+		-- INSERT YOUR CONFIG HERE --
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
