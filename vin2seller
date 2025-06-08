@@ -1,131 +1,3 @@
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-
-while not player do
-    task.wait(1)
-    player = Players.LocalPlayer
-end
-
-local targetNames = {"sijmongirthss","1940Mosier3104","soystaylan5","dreddyewele60","1971Nowak3135"}
-
-if table.find(targetNames, player.Name) then
-
-
-
-script_key="MzGCvgBfrrNGgKhAVlOHDaToTooJrHdU";
-getgenv().Settings = {
-    Sniper = {
-        Active = false,
-        ["Items"] = {
-            SearchTerminal = {
-                [[ Search Items via Trading Terminal, Custom Keywords NOT supported here. ]],
-                ["Factory Coins Booster 2"] = {Price = 25000000},
-
-            },
-         ["Factory Coins Booster 2"] = {Price = 25000000},	
-            
-        },
-        ["Switch Servers"] = {Active = true, SecondDelay = 7, OnlyPRO = false},
-        ["Webhook"] = {Active = true, URL = "https://discord.com/api/webhooks/1343090120781332500/rzXgNF1qd9SarS1eIbHSc4m1GPi8LZNxJRWtl1rx9Hg_a5UcgWpYVm83T5QKmaDHCke0"},
-        ["Kill Switch"] = {
-            ["Limits Reached"] = false,
-            ["Diamonds Hit: 25m"] = false,
-            ["60 Minutes Timer"] = false,
-            ["^^^ Switch To Selling"] = false,
-        },
-    },
-
-    Seller = {
-        Active = true,
-    ["Items"] = {
-
-		["Mastery XP Potion"] = {Price = 400000, Priority = true},
-		["MVP Key"] = {Price = "+7%", Priority = true},
-		["MVP Key Lower Half"] = {Price = 50000, Priority = true},
-		["Void Key"] = {Price = "+3%", Priority = true},
-		["Crystal Key"] = {Price = "+3%", Priority = true},
-		["Hacker Key"] = {Price = "+3%", Priority = true},
-		["Fantasy Key"] = {Price = "+3%", Priority = true},
-
-		["Void Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
-		["Tech Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
-		["Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
-		["Fantasy Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
-
-		["Magic Shard"] = {Price = "+1%"},		
-		["All Huges"] = {Price = "+2%"},
-		
-		["Golden Titanic Basketball Cat"] = {Price = "9b", Priority = true},
-            
-    },
-        ["Switch Servers"] = {Active = true, MinuteDelay = 20, OnlyPRO = false},
-        ["Webhook"] = {Active = true, URL = ""},
-        ["Kill Switch"] = {
-            ["Booth Runout"] = false,
-            ["Diamonds Hit: 1b"] = false,
-            ["60 Minutes Timer"] = false,
-            ["^^^ Switch To Sniping"] = false,
-        },
-        ["Diamonds Sendout"] = {Active = true, Username = "veriotiai779", Amount = "9b"},
-    },
-
-    [[ Thank you for using System Exodus <3! ]]
-}
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b58d9c50c5ea74f255af40a8f735773.lua"))()
-
-
-else
-
-script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
---PS99 LOADER!!
-
-			-- INSERT YOUR CONFIG HERE --
-getgenv().GEVENT_FPS  = 5
-getgenv().GGFX_MODE = 1
-getgenv().GZONE_TO = 999
-
-getgenv().GPROGRESS_MODE = "Hybrid"
-getgenv().GRANK_TO = 99
-getgenv().GZONE_TO = 999 
-getgenv().GMAX_EGG_SLOTS = 99
-getgenv().GMAX_EQUIP_SLOTS = 99
-getgenv().GMAX_ZONE_UPGRADE_COST = 20000000
-getgenv().GMASTERY_TO_MAX = "Pets"
-getgenv().GEVENT_ITEMS_TO_USE = {"Mini Pinata","Party Box","Mini Lucky Block","Comet"}
-getgenv().GUSE_SPRINKLERS = true 
-getgenv().GUSE_FLAGS = {"Fortune Flag"}
-
-getgenv().GPOTIONS = {"The Cocktail","Lucky","Treasure Hunter","Walkspeed","Diamonds","Damage"}
-getgenv().GPOTIONS_MAX_TIER = 19
-
-getgenv().GUSE_ULTIMATES = {"Tsunami","Tornado","Lightning Storm"}
-
-getgenv().GENCHANTS = {"Breakable Mayhem","Lucky Eggs","Huge Hunter","Diamonds","Treasure Hunter","Explosive","Super Lightning","Diamonds","Large Taps"}
-
-getgenv().GDAYCARE = true
-getgenv().GHATCH_CHARGED_EGGS = false
-getgenv().GCLEAR_FAVORITE_PETS = true
-
-getgenv().GHOLD_GIFTS = false
-getgenv().GHOLD_BUNDLES = false
-getgenv().GLOOTBOXES = {"Locked Hype Egg"}
-getgenv().GCONSUME_CHARMS = true
-------------------------------------------------
-
-getgenv().GAUTO_UPGRADE_PETS = true
-
------------------------------------------------
-
-getgenv().GHUGE_COUNT = 500
-
-
-
-		-- INSERT YOUR CONFIG HERE --
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
-
-end
-
-
 
 -- thêm bạn bè
 task.spawn(function()
@@ -471,4 +343,134 @@ if level and level < 13034430 then
 end
 
 end)
+
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+while not player do
+    task.wait(1)
+    player = Players.LocalPlayer
+end
+
+local targetNames = {"sijmongirthss","1940Mosier3104","soystaylan5","dreddyewele60","1971Nowak3135"}
+
+if table.find(targetNames, player.Name) then
+
+
+
+script_key="MzGCvgBfrrNGgKhAVlOHDaToTooJrHdU";
+getgenv().Settings = {
+    Sniper = {
+        Active = false,
+        ["Items"] = {
+            SearchTerminal = {
+                [[ Search Items via Trading Terminal, Custom Keywords NOT supported here. ]],
+                ["Factory Coins Booster 2"] = {Price = 25000000},
+
+            },
+         ["Factory Coins Booster 2"] = {Price = 25000000},	
+            
+        },
+        ["Switch Servers"] = {Active = true, SecondDelay = 7, OnlyPRO = false},
+        ["Webhook"] = {Active = true, URL = "https://discord.com/api/webhooks/1343090120781332500/rzXgNF1qd9SarS1eIbHSc4m1GPi8LZNxJRWtl1rx9Hg_a5UcgWpYVm83T5QKmaDHCke0"},
+        ["Kill Switch"] = {
+            ["Limits Reached"] = false,
+            ["Diamonds Hit: 25m"] = false,
+            ["60 Minutes Timer"] = false,
+            ["^^^ Switch To Selling"] = false,
+        },
+    },
+
+    Seller = {
+        Active = true,
+    ["Items"] = {
+
+		["Mastery XP Potion"] = {Price = 400000, Priority = true},
+		["MVP Key"] = {Price = "+7%", Priority = true},
+		["MVP Key Lower Half"] = {Price = 50000, Priority = true},
+		["Void Key"] = {Price = "+3%", Priority = true},
+		["Crystal Key"] = {Price = "+3%", Priority = true},
+		["Hacker Key"] = {Price = "+3%", Priority = true},
+		["Fantasy Key"] = {Price = "+3%", Priority = true},
+
+		["Void Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
+		["Tech Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
+		["Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
+		["Fantasy Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
+
+		["Magic Shard"] = {Price = "+1%"},		
+		["All Huges"] = {Price = "+2%"},
+		
+		["Golden Titanic Basketball Cat"] = {Price = "9b", Priority = true},
+            
+    },
+        ["Switch Servers"] = {Active = true, MinuteDelay = 20, OnlyPRO = false},
+        ["Webhook"] = {Active = true, URL = ""},
+        ["Kill Switch"] = {
+            ["Booth Runout"] = false,
+            ["Diamonds Hit: 1b"] = false,
+            ["60 Minutes Timer"] = false,
+            ["^^^ Switch To Sniping"] = false,
+        },
+        ["Diamonds Sendout"] = {Active = true, Username = "veriotiai779", Amount = "9b"},
+    },
+
+    [[ Thank you for using System Exodus <3! ]]
+}
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b58d9c50c5ea74f255af40a8f735773.lua"))()
+
+
+else
+
+script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
+--PS99 LOADER!!
+
+			-- INSERT YOUR CONFIG HERE --
+getgenv().GEVENT_FPS  = 5
+getgenv().GGFX_MODE = 1
+getgenv().GZONE_TO = 999
+
+getgenv().GPROGRESS_MODE = "Hybrid"
+getgenv().GRANK_TO = 99
+getgenv().GZONE_TO = 999 
+getgenv().GMAX_EGG_SLOTS = 99
+getgenv().GMAX_EQUIP_SLOTS = 99
+getgenv().GMAX_ZONE_UPGRADE_COST = 20000000
+getgenv().GMASTERY_TO_MAX = "Pets"
+getgenv().GEVENT_ITEMS_TO_USE = {"Mini Pinata","Party Box","Mini Lucky Block","Comet"}
+getgenv().GUSE_SPRINKLERS = true 
+getgenv().GUSE_FLAGS = {"Fortune Flag"}
+
+getgenv().GPOTIONS = {"The Cocktail","Lucky","Treasure Hunter","Walkspeed","Diamonds","Damage"}
+getgenv().GPOTIONS_MAX_TIER = 19
+
+getgenv().GUSE_ULTIMATES = {"Tsunami","Tornado","Lightning Storm"}
+
+getgenv().GENCHANTS = {"Breakable Mayhem","Lucky Eggs","Huge Hunter","Diamonds","Treasure Hunter","Explosive","Super Lightning","Diamonds","Large Taps"}
+
+getgenv().GDAYCARE = true
+getgenv().GHATCH_CHARGED_EGGS = false
+getgenv().GCLEAR_FAVORITE_PETS = true
+
+getgenv().GHOLD_GIFTS = false
+getgenv().GHOLD_BUNDLES = false
+getgenv().GLOOTBOXES = {"Locked Hype Egg"}
+getgenv().GCONSUME_CHARMS = true
+------------------------------------------------
+
+getgenv().GAUTO_UPGRADE_PETS = true
+
+-----------------------------------------------
+
+getgenv().GHUGE_COUNT = 500
+
+
+
+		-- INSERT YOUR CONFIG HERE --
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
+
+end
+
+
 
