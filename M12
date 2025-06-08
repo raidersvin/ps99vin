@@ -435,7 +435,7 @@ else
 
 	getgenv().GMAIL_ITEMS = {
 
-		["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 10},	
+		["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 1},	
 		
 	}
 
