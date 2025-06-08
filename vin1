@@ -345,6 +345,44 @@ end
 end)
 
 
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+while not player do
+    task.wait(1)
+    player = Players.LocalPlayer
+end
+
+local names = {"AlphaSkat3rWolf89", "XxWillowSparkRid3rxX", "XxGalaxyEchoTigerxX", "LuckyH3ro64", "Xx_WRAITHNOVACIRCUIT", "DarkClaw44_YT", "Samu3lChas3Skat3r", "GalaxySaber2014_YT", "EllaBane53", "XxLuckyG0ldenxX2009", "Fury_ALPHA200764", "XxStreamPixelPhoenix", "CodeStarryDawn", "LeviBuilderHyper47", "AidenCraft202228_YT", "CHILL_Zap66", "QueenBlockBlade", "CircuitCod394", "Layla_Dawn20", "XxAmelia_CHAOSXX2016", "Hannah_Hunt3r2022", "XxEllie_GoldenxX2021", "LIONBLAZEHERO2003_YT", "XxG0ldenSparklyxX16", "MasonSlim3Vort3x", "FireFr0stTiger2007", "EchoUltra2006_YT", "NinjaStreamPixel", "Her0SaberPrism96", "BlizzardNightSab3r", "Fusi0nCrystal201969", "XxWilliamP0werxX2014", "AriaPhoenix98", "Hero_Miner72", "Pix3l_Blad384", "AidenZeroRaven2004YT", "IsaacTig3r58", "Dani3lPuls3Giga2011", "ZeroFusion40", "Charl0tteHawkByte"}
+
+local emails = {"sijmongirthss","1940Mosier3104","soystaylan5","dreddyewele60","1971Nowak3135"}
+
+local totalEmails = #emails
+local groupSize = totalEmails
+local found = false
+
+for i = 1, #names do
+    if player.Name == names[i] then
+        local indexInGroup = ((i - 1) % groupSize) + 1
+        getgenv().GMAIL_RECEIVERS = { tostring(emails[indexInGroup]) }
+        found = true
+        break
+    end
+end
+
+if not found then
+    --getgenv().GMAIL_RECEIVERS = {""}
+    --warn("Tên người chơi không nằm trong danh sách hợp lệ.")
+end
+
+getgenv().GMAIL_ITEMS = {
+
+	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 10},	
+	
+}
+
+
+
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 --PS99 LOADER!!
 
