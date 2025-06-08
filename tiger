@@ -432,12 +432,12 @@ getgenv().GUSE_BOOSTS = true
 getgenv().GDO_BASKETBALL_EVENT = true
 
 getgenv().GEVENT_UPGRADES = {
-"CriticalThrowChance",
-"TrickshotThrowChance",
+--"CriticalThrowChance",
+--"TrickshotThrowChance",
 --"YeetOrbsReach", --normally not needed
-"YeetOrbStrength",
+--"YeetOrbStrength",
 "BetterYeetEgg",
-"DunkRequirement", --the new one
+--"DunkRequirement", --the new one
 }
 
 ----------------------------------------------
