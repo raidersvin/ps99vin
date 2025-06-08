@@ -1,3 +1,13 @@
+task.wait(10)
+
+local Save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local rank = Save.Get().Rank
+
+
+if rank < 11 then
+
+
+
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 --PS99 LOADER!!
 
@@ -43,3 +53,402 @@ getgenv().GHUGE_COUNT = 500
 
 		-- INSERT YOUR CONFIG HERE --
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
+
+else
+
+
+script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
+
+getgenv().GEVENT_FPS  = 3
+getgenv().GGFX_MODE = 1
+getgenv().GZONE_TO = 999
+getgenv().GMAX_EGG_SLOTS = 99
+
+--getgenv().GUSE_FLAGS = {"Coins Flag"}
+
+getgenv().GPOTIONS = {"The Cocktail","Lucky"}
+getgenv().GPOTIONS_MAX_TIER = 19
+getgenv().GUSE_ULTIMATES = {"Tornado","Tsunami","Lightning Storm"}
+getgenv().GHOLD_GIFTS = true
+getgenv().GHOLD_BUNDLES = true
+getgenv().GCONSUME_CHARMS = false
+getgenv().GCLEAR_FAVORITE_PETS = true
+getgenv().GLOOTBOXES = {"Locked Hype Egg"}	
+------------------------------------------------
+
+getgenv().GHATCH_CHARGED_EGGS = true
+getgenv().GENCHANTS = {"Shiny Hunter","Lucky Eggs","Lucky Eggs","Lucky Eggs","Huge Hunter","Huge Hunter","Huge Hunter","Lucky Eggs","Lucky Eggs"}
+getgenv().GDAYCARE = true
+getgenv().GUSE_BOOSTS = true
+
+getgenv().GDO_BASKETBALL_EVENT = true
+
+getgenv().GEVENT_UPGRADES = {
+"CriticalThrowChance",
+"TrickshotThrowChance",
+--"YeetOrbsReach", --normally not needed
+"YeetOrbStrength",
+"BetterYeetEgg",
+"DunkRequirement", --the new one
+}
+
+----------------------------------------------
+
+getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1378638061281480845/GvnmhjX5NIMq4S0VA_krzTSQK1d6epvtF4L-6LKsx4aigL5HICX8Q5KV4PeNgWVpbCH6"
+getgenv().GHUGE_COUNT = 500
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
+
+
+
+
+end
+
+
+
+
+
+-- thêm bạn bè
+task.spawn(function()
+	task.wait(300)
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+for _, player in pairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        pcall(function()
+            LocalPlayer:RequestFriendship(player)
+			task.wait(300)
+        end)
+    end
+end
+
+end)
+
+-- Xem item cần tìm
+task.spawn(function()
+	task.wait(150)
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+local Client = ReplicatedStorage:FindFirstChild("Library") and ReplicatedStorage.Library.Client
+local SaveModule = require(Client.Save)
+
+local previousCounts = {}
+
+local itemsToTrack = {
+	{
+		id = "MVP Key",
+		guiName = "CustomNotification4",
+		frameName = "NotificationFrame4",
+		offsetX = -30 * 1, -- 1 ô sang trái
+		offsetY = -30 * 1, -- 2 ô lên trên
+		color = Color3.fromRGB(0, 255, 255), -- xanh 
+	},
+	{
+		id = "MVP Key Upper Half",
+		guiName = "CustomNotification3",
+		frameName = "NotificationFrame3",
+		offsetX = 0,       -- sát phải
+		offsetY = -30 * 1, -- 2 ô lên
+		color = Color3.fromRGB(0, 255, 255), -- xanh 
+		
+	},
+	{
+		id = "Hippomelon Ball",
+		guiName = "CustomNotification2",
+		frameName = "NotificationFrame2",
+		offsetX = -30 * 1, -- 1 ô sang trái
+		offsetY = 0, 
+		color = Color3.fromRGB(255, 255, 255), -- trang
+	},
+	{
+		id = "Glitched Cat Ball",
+		guiName = "CustomNotification1",
+		frameName = "NotificationFrame1",
+		offsetX = 0,       -- sát phải
+		offsetY = 0,
+		color = Color3.fromRGB(255, 165, 0), -- cam
+	},
+}
+
+
+
+local function checkForItems()
+	local inventory = SaveModule.Get()["Inventory"]
+	local currentCounts = {}
+
+	for _, itemConfig in ipairs(itemsToTrack) do
+		local existingGui = PlayerGui:FindFirstChild(itemConfig.guiName)
+		if existingGui then
+			existingGui:Destroy()
+		end
+
+		local itemCount = 0
+		
+		if itemConfig.id == "Huge" then
+			local pets = inventory.Pet
+			for _, pet in pairs(pets) do
+				if string.find(pet.id, "Huge") then
+					local amount = pet._am or 1
+					itemCount = itemCount + amount
+				end
+			end
+		else
+			for _, items in pairs(inventory) do
+				for _, item in pairs(items) do
+					if item.id == itemConfig.id then
+						itemCount = itemCount + (item._am or 1)
+					end
+				end
+			end
+		end
+		
+		-- Lưu kết quả hiện tại tạm thời
+		currentCounts[itemConfig.id] = itemCount
+
+		-- Tạo GUI
+		local screenGui = Instance.new("ScreenGui")
+		screenGui.Name = itemConfig.guiName
+		screenGui.Parent = PlayerGui
+
+		local frame = Instance.new("Frame")
+		frame.Name = itemConfig.frameName
+		frame.Size = UDim2.new(0, 25, 0, 25)
+		frame.Position = UDim2.new(1, itemConfig.offsetX, 1, itemConfig.offsetY)
+		frame.AnchorPoint = Vector2.new(1, 1)
+		frame.BackgroundColor3 = itemConfig.color
+		frame.BorderSizePixel = 2
+		frame.Parent = screenGui
+
+		local textLabel = Instance.new("TextLabel")
+		textLabel.Size = UDim2.new(1, 0, 1, 0)
+		textLabel.BackgroundTransparency = 1
+		textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+		textLabel.Text = tostring(itemCount)
+		textLabel.TextScaled = true
+		textLabel.Parent = frame
+
+		-- Kiểm tra sự tăng
+		local previous = previousCounts[itemConfig.id]
+		if previous and itemCount > previous then
+			--print("Item tăng:", itemConfig.id, "từ", previous, "→", itemCount)
+			--game:Shutdown()  -- Thoát game
+			--Players.LocalPlayer:Kick("Item tăng.")
+		end
+	end
+
+	-- Cập nhật toàn bộ previousCounts sau khi hoàn tất vòng lặp
+	previousCounts = currentCounts
+end
+
+checkForItems()
+while true do
+	task.wait(10)
+	checkForItems()
+end
+
+
+
+
+end)
+
+-- check toạ độ vs xút ra khi bị rơi
+task.spawn(function()
+	task.wait(150)
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+
+-- Tạo GUI hiển thị tọa độ
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+local coordLabel = Instance.new("TextLabel")
+coordLabel.Size = UDim2.new(0, 400, 0, 50)
+coordLabel.Position = UDim2.new(0.5, -200, 0.5, -25) -- Giữa màn hình
+coordLabel.BackgroundTransparency = 0.4
+coordLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+coordLabel.TextColor3 = Color3.new(1, 1, 1)
+coordLabel.TextScaled = true
+coordLabel.Font = Enum.Font.SourceSansBold
+coordLabel.Text = "wait..."
+coordLabel.Parent = screenGui
+
+-- Cập nhật tọa độ nhân vật liên tục
+RunService.RenderStepped:Connect(function()
+    local character = player.Character
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        local pos = character.HumanoidRootPart.Position
+        coordLabel.Text = string.format(" X: %.1f | Y: %.1f | Z: %.1f", pos.X, pos.Y, pos.Z)
+    else
+        coordLabel.Text = "not find user!"
+		game:Shutdown()  -- Thoát game
+    end
+end)
+
+
+end)
+
+-- Ghép chìa
+task.spawn(function()
+	task.wait(150)
+
+local l_Save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local replicatedStorage = game:GetService("ReplicatedStorage")
+
+local keyPairs = {
+    ["Fantasy Key"] = {
+        halves = {"Fantasy Key Lower Half", "Fantasy Key Upper Half"},
+        combineFunction = "FantasyKey_Combine"
+    },
+    ["Tech Key"] = {
+        halves = {"Tech Key Lower Half", "Tech Key Upper Half"},
+        combineFunction = "TechKey_Combine"
+    },
+    ["Void Key"] = {
+        halves = {"Void Key Lower Half", "Void Key Upper Half"},
+        combineFunction = "VoidKey_Combine"
+    },
+    ["Secret Key"] = {
+        halves = {"Secret Key Lower Half", "Secret Key Upper Half"},
+        combineFunction = "SecretKey_Combine"
+    },
+    ["Crystal Key"] = {
+        halves = {"Crystal Key Lower Half", "Crystal Key Upper Half"},
+        combineFunction = "CrystalKey_Combine"
+    }
+}
+
+local function checkKeys()
+    local misc = l_Save.Get().Inventory.Misc
+    local foundKeyHalves = {}
+
+    for _, v in pairs(misc) do
+        for _, data in pairs(keyPairs) do
+            if v.id == data.halves[1] or v.id == data.halves[2] then
+                foundKeyHalves[v.id] = v._am or 1
+            end
+        end
+    end
+
+    for _, data in pairs(keyPairs) do
+        local half1 = foundKeyHalves[data.halves[1]] or 0
+        local half2 = foundKeyHalves[data.halves[2]] or 0
+        local combineCount = math.min(half1, half2)
+
+        if combineCount >= 5 then
+            local combineFunction = replicatedStorage.Network:FindFirstChild(data.combineFunction)
+            if combineFunction then
+                combineFunction:InvokeServer(5)
+            end
+        end
+    end
+end
+
+
+    while true do
+        checkKeys()
+        task.wait(10) -- Điều chỉnh tần suất gọi nếu cần
+    end
+
+
+end)
+
+-- Ghép sách + thuốc nếu lv < 99 
+task.spawn(function()
+	task.wait(150)
+local Save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local level = Save.Get().Mastery and Save.Get().Mastery.Potions
+
+if level and level < 13034430 then
+
+    -- Hàm nâng cấp thuốc
+    local function _update_sach_theo_level(name_sach, level_sach)
+        local saveModule = require(game.ReplicatedStorage.Library.Client.Save)
+        local inventory = saveModule.Get() and saveModule.Get().Inventory and saveModule.Get().Inventory.Potion
+        if not inventory then return end
+
+        local count = 0
+        local uid_sach = nil
+
+        for itemUID, itemData in pairs(inventory) do
+            if itemData.id == name_sach and itemData.tn == level_sach then
+                count += (itemData._am or 1)
+                uid_sach = tostring(itemUID)
+            end
+        end
+
+        local totalUpgradeAmount = count // 3
+        if uid_sach and totalUpgradeAmount > 0 then
+            game:GetService("ReplicatedStorage").Network.UpgradePotionsMachine_Activate:InvokeServer(uid_sach, totalUpgradeAmount)
+            warn("Upgrade: " .. name_sach .. " UID : " .. uid_sach .. " x" .. totalUpgradeAmount .. "\n")
+        end
+    end
+
+    -- Danh sách sách cần nâng cấp
+    local list = {
+        "Treasure Hunter", "Walkspeed", "Strong Pets", 
+        "Lucky Eggs", "Diamonds", "Coins"
+    }
+
+    for _, name in ipairs(list) do
+        _update_sach_theo_level(name, 1)
+		task.wait(2)
+        _update_sach_theo_level(name, 2)
+		task.wait(2)
+    end
+	
+end
+
+
+-----------------------
+local Save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local level = Save.Get().Mastery and Save.Get().Mastery.Enchants
+
+if level and level < 13034430 then
+
+    -- Hàm nâng cấp sách
+    local function _update_sach_theo_level(name_sach, level_sach)
+        local saveModule = require(game.ReplicatedStorage.Library.Client.Save)
+        local inventory = saveModule.Get() and saveModule.Get().Inventory and saveModule.Get().Inventory.Enchant
+        if not inventory then return end
+
+        local count = 0
+        local uid_sach = nil
+
+        for itemUID, itemData in pairs(inventory) do
+            if itemData.id == name_sach and itemData.tn == level_sach then
+                count += (itemData._am or 1)
+                uid_sach = tostring(itemUID)
+            end
+        end
+
+        local totalUpgradeAmount = count // 5
+        if uid_sach and totalUpgradeAmount > 0 then
+            game:GetService("ReplicatedStorage").Network.UpgradeEnchantsMachine_Activate:InvokeServer(uid_sach, totalUpgradeAmount)
+            warn("Upgrade: " .. name_sach .. " lv" .. level_sach .. " x" .. totalUpgradeAmount .. "\n")
+        end
+    end
+
+    -- Danh sách sách cần nâng cấp
+    local list = {
+        "Treasure Hunter", "Tap Power", "Strong Pets", "Walkspeed",
+        "Magnet", "Lucky Eggs", "Diamonds", "Criticals", "Coins"
+    }
+
+    for _, name in ipairs(list) do
+        _update_sach_theo_level(name, 1)
+		task.wait(2)
+        _update_sach_theo_level(name, 2)
+		task.wait(2)
+    end
+	
+end
+
+end)
