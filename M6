@@ -425,7 +425,7 @@ getgenv().GCLEAR_FAVORITE_PETS = true
 getgenv().GLOOTBOXES = {"Locked Hype Egg"}	
 ------------------------------------------------
 
-getgenv().GHATCH_CHARGED_EGGS = true
+--getgenv().GHATCH_CHARGED_EGGS = true
 getgenv().GENCHANTS = {"Shiny Hunter","Lucky Eggs","Lucky Eggs","Lucky Eggs","Huge Hunter","Huge Hunter","Huge Hunter","Lucky Eggs","Lucky Eggs"}
 getgenv().GDAYCARE = true
 getgenv().GUSE_BOOSTS = true
