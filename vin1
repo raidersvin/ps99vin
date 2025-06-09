@@ -345,41 +345,13 @@ end
 end)
 
 
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
+task.wait(10)
 
-while not player do
-    task.wait(1)
-    player = Players.LocalPlayer
-end
+local Save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+local rank = Save.Get().Rank
 
-local names = {"AlphaSkat3rWolf89", "XxWillowSparkRid3rxX", "XxGalaxyEchoTigerxX", "LuckyH3ro64", "Xx_WRAITHNOVACIRCUIT", "DarkClaw44_YT", "Samu3lChas3Skat3r", "GalaxySaber2014_YT", "EllaBane53", "XxLuckyG0ldenxX2009", "Fury_ALPHA200764", "XxStreamPixelPhoenix", "CodeStarryDawn", "LeviBuilderHyper47", "AidenCraft202228_YT", "CHILL_Zap66", "QueenBlockBlade", "CircuitCod394", "Layla_Dawn20", "XxAmelia_CHAOSXX2016", "Hannah_Hunt3r2022", "XxEllie_GoldenxX2021", "LIONBLAZEHERO2003_YT", "XxG0ldenSparklyxX16", "MasonSlim3Vort3x", "FireFr0stTiger2007", "EchoUltra2006_YT", "NinjaStreamPixel", "Her0SaberPrism96", "BlizzardNightSab3r", "Fusi0nCrystal201969", "XxWilliamP0werxX2014", "AriaPhoenix98", "Hero_Miner72", "Pix3l_Blad384", "AidenZeroRaven2004YT", "IsaacTig3r58", "Dani3lPuls3Giga2011", "ZeroFusion40", "Charl0tteHawkByte"}
 
-local emails = {"sijmongirthss","1940Mosier3104","soystaylan5","dreddyewele60","1971Nowak3135"}
-
-local totalEmails = #emails
-local groupSize = totalEmails
-local found = false
-
-for i = 1, #names do
-    if player.Name == names[i] then
-        local indexInGroup = ((i - 1) % groupSize) + 1
-        getgenv().GMAIL_RECEIVERS = { tostring(emails[indexInGroup]) }
-        found = true
-        break
-    end
-end
-
-if not found then
-    --getgenv().GMAIL_RECEIVERS = {""}
-    --warn("Tên người chơi không nằm trong danh sách hợp lệ.")
-end
-
-getgenv().GMAIL_ITEMS = {
-
-	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 10},	
-	
-}
+if rank < 11 then
 
 
 
@@ -428,3 +400,52 @@ getgenv().GHUGE_COUNT = 500
 
 		-- INSERT YOUR CONFIG HERE --
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
+
+else
+
+script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
+
+getgenv().GEVENT_FPS  = 3
+getgenv().GGFX_MODE = 1
+getgenv().GZONE_TO = 999
+getgenv().GMAX_EGG_SLOTS = 99
+
+--getgenv().GUSE_FLAGS = {"Coins Flag"}
+
+getgenv().GPOTIONS = {"The Cocktail","Lucky"}
+getgenv().GPOTIONS_MAX_TIER = 19
+getgenv().GUSE_ULTIMATES = {"Tornado","Tsunami","Lightning Storm"}
+getgenv().GHOLD_GIFTS = true
+getgenv().GHOLD_BUNDLES = true
+getgenv().GCONSUME_CHARMS = false
+getgenv().GCLEAR_FAVORITE_PETS = true
+getgenv().GLOOTBOXES = {"Locked Hype Egg"}	
+------------------------------------------------
+
+--getgenv().GHATCH_CHARGED_EGGS = true
+getgenv().GENCHANTS = {"Shiny Hunter","Lucky Eggs","Lucky Eggs","Lucky Eggs","Huge Hunter","Huge Hunter","Huge Hunter","Lucky Eggs","Lucky Eggs"}
+getgenv().GDAYCARE = true
+getgenv().GUSE_BOOSTS = true
+
+getgenv().GDO_BASKETBALL_EVENT = true
+
+getgenv().GEVENT_UPGRADES = {
+--"CriticalThrowChance",
+--"TrickshotThrowChance",
+--"YeetOrbsReach", --normally not needed
+--"YeetOrbStrength",
+"BetterYeetEgg",
+--"DunkRequirement", --the new one
+}
+
+----------------------------------------------
+
+getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1378638061281480845/GvnmhjX5NIMq4S0VA_krzTSQK1d6epvtF4L-6LKsx4aigL5HICX8Q5KV4PeNgWVpbCH6"
+getgenv().GHUGE_COUNT = 500
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
+
+
+
+
+end
