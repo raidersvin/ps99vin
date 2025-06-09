@@ -311,13 +311,43 @@ end
 
 end)
 
-task.wait(10)
 
-local Save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
-local rank = Save.Get().Rank
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer
+
+	while not player do
+		task.wait(1)
+		player = Players.LocalPlayer
+	end
 
 
-if rank < 11 then
+	local names = {"PrimalBan3Rift200314","St0rm_V0id57","ZaydenSkyChase2015","STARRY_Pix3l60","Orbit_Hunter26","OliviaCooki3Lucky201","NinjaPandaEcho2013","Jayd3nGalaxy69","XxGabrielBaneDancerx","BlastNinja22","Chl0eArr0w73","LionPixel2003_YT","Craz3_ZAP2015","StealthPowerFlame","LeviDriftKnight","ClawStorm2002","Aurora_POWER51","MasonHyper201462","VICT0RIA_Pixel2017","XxAbigail_MasterxX15","WraithPulseBuilder20","SKY_Lion92","XxMiaThunderxX26","Xx_BLAZEPIXELATEDFLI","GabrielRift2003YT","AvaStarEagl3","Li0nZap2024","EpicFlam3Ic3","Nora_FLASH22","Venom_Lion2003","XX_ZaydenCircuitGiga","Li0nBac0nFire","XxOrbitZer0GalaxyxX2","Ril3yRogu3Chill2014","MoonBlaze32","LionFireNeon","StormLionRift2017","Rogu3Rid3rMin3r2008","HeroHawk40","T0xic_Ninja2021YT","MinerEpicPro","MateoStealthViper44","B3ast_Starry2005","JamesNightT0xic","Claw_STARRY84","LegendPrismShadow201","XxZayd3nB3astSonicxX","NoraBuilderNightYT","SparklyOrbitDragon","CrystalThund3r89"}
+	local emails = {"detmerskanbahlaaq","tethgarawi","eraydaadamusp","affiegutterin9","karlo8266","parentenevzet95","mayenkahan93","parmentminiecv","asgeirtcledgy","pierautsundue86","fatmavandercr49","tobejwakari37","lavafubughs","irgcoypusb","kellarkreiken50","yantungleggatt63","mariamnevanschen70","menkoludzer79","hersindeayala25","harvi46288","vasanth59150","lavinie91258","soojung48573","heraldaleksand57","burchard6297","crowthorirminajg","etwitepluffyx","vidyakeymer20","jessasergio22","ebenhezepippel1","muoininfaui","leaguemats13","wierdunseen39","1941Dodds","1942Hutto3106","1943McLeod3107","1944Jackson3108","1945Pearson3109","1946Kirchner3110","1947Groff3111","1948Simmons3112","1949McKnight3113","1950Shipley3114","1951Booth3115","1952Fiore3116","1953Crutchfield3117","1954Burkhart3118","1955Hand3119","1956McCollum3120","1957Devore3121"}
+
+	local totalEmails = #emails
+	local groupSize = totalEmails
+	local found = false
+
+	for i = 1, #names do
+		if player.Name == names[i] then
+			local indexInGroup = ((i - 1) % groupSize) + 1
+			getgenv().GMAIL_RECEIVERS = { tostring(emails[indexInGroup]) }
+			found = true
+			break
+		end
+	end
+
+	if not found then
+		getgenv().GMAIL_RECEIVERS = {""}
+		--warn("Tên người chơi không nằm trong danh sách hợp lệ.")
+	end
+
+	getgenv().GMAIL_ITEMS = {
+
+		["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 10},	
+		
+	}
+
 
 
 
@@ -366,90 +396,5 @@ getgenv().GHUGE_COUNT = 500
 
 		-- INSERT YOUR CONFIG HERE --
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
-
-else
-
-	local Players = game:GetService("Players")
-	local player = Players.LocalPlayer
-
-	while not player do
-		task.wait(1)
-		player = Players.LocalPlayer
-	end
-
-	local names = {"PrimalBan3Rift200314","St0rm_V0id57","ZaydenSkyChase2015","STARRY_Pix3l60","Orbit_Hunter26","OliviaCooki3Lucky201","NinjaPandaEcho2013","Jayd3nGalaxy69","XxGabrielBaneDancerx","BlastNinja22","Chl0eArr0w73","LionPixel2003_YT","Craz3_ZAP2015","StealthPowerFlame","LeviDriftKnight","ClawStorm2002","Aurora_POWER51","MasonHyper201462","VICT0RIA_Pixel2017","XxAbigail_MasterxX15","WraithPulseBuilder20","SKY_Lion92","XxMiaThunderxX26","Xx_BLAZEPIXELATEDFLI","GabrielRift2003YT","AvaStarEagl3","Li0nZap2024","EpicFlam3Ic3","Nora_FLASH22","Venom_Lion2003","XX_ZaydenCircuitGiga","Li0nBac0nFire","XxOrbitZer0GalaxyxX2","Ril3yRogu3Chill2014","MoonBlaze32","LionFireNeon","StormLionRift2017","Rogu3Rid3rMin3r2008","HeroHawk40","T0xic_Ninja2021YT","MinerEpicPro","MateoStealthViper44","B3ast_Starry2005","JamesNightT0xic","Claw_STARRY84","LegendPrismShadow201","XxZayd3nB3astSonicxX","NoraBuilderNightYT","SparklyOrbitDragon","CrystalThund3r89"}
-	local emails = {"AlphaSkat3rWolf89", "XxWillowSparkRid3rxX", "XxGalaxyEchoTigerxX", "LuckyH3ro64", "Xx_WRAITHNOVACIRCUIT", "DarkClaw44_YT", "Samu3lChas3Skat3r", "GalaxySaber2014_YT", "EllaBane53", "XxLuckyG0ldenxX2009", "Fury_ALPHA200764", "XxStreamPixelPhoenix", "CodeStarryDawn", "LeviBuilderHyper47", "AidenCraft202228_YT", "CHILL_Zap66", "QueenBlockBlade", "CircuitCod394", "Layla_Dawn20", "XxAmelia_CHAOSXX2016", "Hannah_Hunt3r2022", "XxEllie_GoldenxX2021", "LIONBLAZEHERO2003_YT", "XxG0ldenSparklyxX16", "MasonSlim3Vort3x", "FireFr0stTiger2007", "EchoUltra2006_YT", "NinjaStreamPixel", "Her0SaberPrism96", "BlizzardNightSab3r", "Fusi0nCrystal201969", "XxWilliamP0werxX2014", "AriaPhoenix98", "Hero_Miner72", "Pix3l_Blad384", "AidenZeroRaven2004YT", "IsaacTig3r58", "Dani3lPuls3Giga2011", "ZeroFusion40", "Charl0tteHawkByte"}
-
-
-	local totalEmails = #emails
-	local groupSize = totalEmails
-	local found = false
-
-	for i = 1, #names do
-		if player.Name == names[i] then
-			local indexInGroup = ((i - 1) % groupSize) + 1
-			getgenv().GMAIL_RECEIVERS = { tostring(emails[indexInGroup]) }
-			found = true
-			break
-		end
-	end
-
-	if not found then
-		getgenv().GMAIL_RECEIVERS = {""}
-		--warn("Tên người chơi không nằm trong danh sách hợp lệ.")
-	end
-
-	getgenv().GMAIL_ITEMS = {
-
-		["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 1},	
-		
-	}
-
-script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
-
-getgenv().GEVENT_FPS  = 3
-getgenv().GGFX_MODE = 1
-getgenv().GZONE_TO = 999
-getgenv().GMAX_EGG_SLOTS = 99
-
---getgenv().GUSE_FLAGS = {"Coins Flag"}
-
-getgenv().GPOTIONS = {"The Cocktail","Lucky"}
-getgenv().GPOTIONS_MAX_TIER = 19
-getgenv().GUSE_ULTIMATES = {"Tornado","Tsunami","Lightning Storm"}
-getgenv().GHOLD_GIFTS = true
-getgenv().GHOLD_BUNDLES = true
-getgenv().GCONSUME_CHARMS = false
-getgenv().GCLEAR_FAVORITE_PETS = true
-getgenv().GLOOTBOXES = {"Locked Hype Egg"}	
-------------------------------------------------
-
---getgenv().GHATCH_CHARGED_EGGS = true
-getgenv().GENCHANTS = {"Shiny Hunter","Lucky Eggs","Lucky Eggs","Lucky Eggs","Huge Hunter","Huge Hunter","Huge Hunter","Lucky Eggs","Lucky Eggs"}
-getgenv().GDAYCARE = true
-getgenv().GUSE_BOOSTS = true
-
-getgenv().GDO_BASKETBALL_EVENT = true
-
-getgenv().GEVENT_UPGRADES = {
---"CriticalThrowChance",
---"TrickshotThrowChance",
---"YeetOrbsReach", --normally not needed
---"YeetOrbStrength",
-"BetterYeetEgg",
---"DunkRequirement", --the new one
-}
-
-----------------------------------------------
-
-getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1378638061281480845/GvnmhjX5NIMq4S0VA_krzTSQK1d6epvtF4L-6LKsx4aigL5HICX8Q5KV4PeNgWVpbCH6"
-getgenv().GHUGE_COUNT = 500
-
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
-
-
-
-
-end
 
 
