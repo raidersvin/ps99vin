@@ -345,6 +345,41 @@ end
 end)
 
 
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+while not player do
+    task.wait(1)
+    player = Players.LocalPlayer
+end
+
+local names = {"detmerskanbahlaaq","tethgarawi","eraydaadamusp","affiegutterin9","karlo8266","parentenevzet95","mayenkahan93","parmentminiecv","asgeirtcledgy","pierautsundue86","fatmavandercr49","tobejwakari37","lavafubughs","irgcoypusb","kellarkreiken50","yantungleggatt63","mariamnevanschen70","menkoludzer79","hersindeayala25","harvi46288","vasanth59150","lavinie91258","soojung48573","heraldaleksand57","burchard6297","crowthorirminajg","etwitepluffyx","vidyakeymer20","jessasergio22","ebenhezepippel1","muoininfaui","leaguemats13","wierdunseen39","1941Dodds","1942Hutto3106","1943McLeod3107","1944Jackson3108","1945Pearson3109","1946Kirchner3110","1947Groff3111","1948Simmons3112","1949McKnight3113","1950Shipley3114","1951Booth3115","1952Fiore3116","1953Crutchfield3117","1954Burkhart3118","1955Hand3119","1956McCollum3120","1957Devore3121"}
+local emails = {"sijmongirthss","1940Mosier3104","soystaylan5","dreddyewele60","1971Nowak3135"}
+
+local totalEmails = #emails
+local groupSize = totalEmails
+local found = false
+
+for i = 1, #names do
+    if player.Name == names[i] then
+        local indexInGroup = ((i - 1) % groupSize) + 1
+        getgenv().GMAIL_RECEIVERS = { tostring(emails[indexInGroup]) }
+        found = true
+        break
+    end
+end
+
+if not found then
+    --getgenv().GMAIL_RECEIVERS = {""}
+    --warn("Tên người chơi không nằm trong danh sách hợp lệ.")
+end
+
+getgenv().GMAIL_ITEMS = {
+
+	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 10},	
+	
+}
+
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 --PS99 LOADER!!
 
