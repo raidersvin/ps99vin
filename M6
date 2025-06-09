@@ -19,136 +19,101 @@ end
 
 end)
 
--- Xem item cần tìm
+-- Xem item cần tìm x 10 ở giữa cho giả lập
+
 task.spawn(function()
-	task.wait(150)
+	task.wait(1)
 
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local Players = game:GetService("Players")
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local LocalPlayer = Players.LocalPlayer
-local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
-local Client = ReplicatedStorage:FindFirstChild("Library") and ReplicatedStorage.Library.Client
-local SaveModule = require(Client.Save)
+	local LocalPlayer = Players.LocalPlayer
+	local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+	local Client = ReplicatedStorage:WaitForChild("Library"):WaitForChild("Client")
+	local SaveModule = require(Client:WaitForChild("Save"))
 
-local previousCounts = {}
+	local previousCounts = {}
 
-local itemsToTrack = {
-	{
-		id = "MVP Key",
-		guiName = "CustomNotification4",
-		frameName = "NotificationFrame4",
-		offsetX = -30 * 1, -- 1 ô sang trái
-		offsetY = -30 * 1, -- 2 ô lên trên
-		color = Color3.fromRGB(0, 255, 255), -- xanh 
-	},
-	{
-		id = "MVP Key Upper Half",
-		guiName = "CustomNotification3",
-		frameName = "NotificationFrame3",
-		offsetX = 0,       -- sát phải
-		offsetY = -30 * 1, -- 2 ô lên
-		color = Color3.fromRGB(0, 255, 255), -- xanh 
+	-- cấu hình item cần theo dõi
+	local itemsToTrack = {
 		
-	},
-	{
-		id = "Hippomelon Ball",
-		guiName = "CustomNotification2",
-		frameName = "NotificationFrame2",
-		offsetX = -30 * 1, -- 1 ô sang trái
-		offsetY = 0, 
-		color = Color3.fromRGB(255, 255, 255), -- trang
-	},
-	{
-		id = "Glitched Cat Ball",
-		guiName = "CustomNotification1",
-		frameName = "NotificationFrame1",
-		offsetX = 0,       -- sát phải
-		offsetY = 0,
-		color = Color3.fromRGB(255, 165, 0), -- cam
-	},
-}
+		{ id = "MVP Key", guiName = "Item3", row = 1, col = 0, color = Color3.fromRGB(0, 255, 255) },					--xanh	trái
+		{ id = "MVP Key Upper Half", guiName = "Item4", row = 1, col = 1, color = Color3.fromRGB(0, 255, 255) }, 		--xanh	phải
+		{ id = "Fragmented Dominus Ball", guiName = "Item1", row = 0, col = 0, color = Color3.fromRGB(255, 165, 0) },	-- cam
+		{ id = "Black Hole Angelus Ball", guiName = "Item2", row = 0, col = 1, color = Color3.fromRGB(255, 255, 255) },	--trang
+	}
+
+	local function createItemFrame(itemConfig, itemCount)
+		local frameSize = 100
+		local spacing = 10
+		local cols = 2
+		local rows = 2
+
+		-- tính vị trí chính giữa màn hình
+		local offsetX = (itemConfig.col * (frameSize + spacing)) - ((cols - 1) * (frameSize + spacing) / 2)
+		local offsetY = (itemConfig.row * (frameSize + spacing)) - ((rows - 1) * (frameSize + spacing) / 2) + 80
 
 
-
-local function checkForItems()
-	local inventory = SaveModule.Get()["Inventory"]
-	local currentCounts = {}
-
-	for _, itemConfig in ipairs(itemsToTrack) do
-		local existingGui = PlayerGui:FindFirstChild(itemConfig.guiName)
-		if existingGui then
-			existingGui:Destroy()
-		end
-
-		local itemCount = 0
-		
-		if itemConfig.id == "Huge" then
-			local pets = inventory.Pet
-			for _, pet in pairs(pets) do
-				if string.find(pet.id, "Huge") then
-					local amount = pet._am or 1
-					itemCount = itemCount + amount
-				end
-			end
-		else
-			for _, items in pairs(inventory) do
-				for _, item in pairs(items) do
-					if item.id == itemConfig.id then
-						itemCount = itemCount + (item._am or 1)
-					end
-				end
-			end
-		end
-		
-		-- Lưu kết quả hiện tại tạm thời
-		currentCounts[itemConfig.id] = itemCount
-
-		-- Tạo GUI
 		local screenGui = Instance.new("ScreenGui")
 		screenGui.Name = itemConfig.guiName
 		screenGui.Parent = PlayerGui
+		screenGui.ResetOnSpawn = false
+		screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 		local frame = Instance.new("Frame")
-		frame.Name = itemConfig.frameName
-		frame.Size = UDim2.new(0, 25, 0, 25)
-		frame.Position = UDim2.new(1, itemConfig.offsetX, 1, itemConfig.offsetY)
-		frame.AnchorPoint = Vector2.new(1, 1)
+		frame.Name = "ItemFrame"
+		frame.Size = UDim2.new(0, frameSize, 0, frameSize)
+		frame.Position = UDim2.new(0.5, offsetX, 1, -offsetY)
+		frame.AnchorPoint = Vector2.new(0.5, 1)
 		frame.BackgroundColor3 = itemConfig.color
 		frame.BorderSizePixel = 2
 		frame.Parent = screenGui
 
-		local textLabel = Instance.new("TextLabel")
-		textLabel.Size = UDim2.new(1, 0, 1, 0)
-		textLabel.BackgroundTransparency = 1
-		textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-		textLabel.Text = tostring(itemCount)
-		textLabel.TextScaled = true
-		textLabel.Parent = frame
-
-		-- Kiểm tra sự tăng
-		local previous = previousCounts[itemConfig.id]
-		if previous and itemCount > previous then
-			--print("Item tăng:", itemConfig.id, "từ", previous, "→", itemCount)
-			--game:Shutdown()  -- Thoát game
-			--Players.LocalPlayer:Kick("Item tăng.")
-		end
+		local label = Instance.new("TextLabel")
+		label.Size = UDim2.new(1, 0, 1, 0)
+		label.BackgroundTransparency = 1
+		label.Text = tostring(itemCount)
+		label.TextColor3 = Color3.fromRGB(0, 0, 0)
+		label.TextScaled = true
+		label.Font = Enum.Font.GothamBold
+		label.Parent = frame
 	end
 
-	-- Cập nhật toàn bộ previousCounts sau khi hoàn tất vòng lặp
-	previousCounts = currentCounts
-end
+	local function checkInventory()
+		local inventory = SaveModule.Get().Inventory or {}
+		local currentCounts = {}
 
-checkForItems()
-while true do
-	task.wait(10)
-	checkForItems()
-end
+		-- xóa GUI cũ
+		for _, item in ipairs(itemsToTrack) do
+			local oldGui = PlayerGui:FindFirstChild(item.guiName)
+			if oldGui then oldGui:Destroy() end
+		end
 
+		for _, item in ipairs(itemsToTrack) do
+			local count = 0
+			for _, group in pairs(inventory) do
+				for _, obj in pairs(group) do
+					if obj.id == item.id then
+						count += (obj._am or 1)
+					end
+				end
+			end
+			currentCounts[item.id] = count
+			createItemFrame(item, count)
+		end
 
+		previousCounts = currentCounts
+	end
 
-
+	checkInventory()
+	while true do
+		task.wait(10)
+		checkInventory()
+	end
 end)
+
+
+
 
 -- check toạ độ vs xút ra khi bị rơi
 task.spawn(function()
