@@ -382,14 +382,14 @@ getgenv().GCLEAR_FAVORITE_PETS = true
 
 getgenv().GHOLD_GIFTS = false
 getgenv().GHOLD_BUNDLES = false
-getgenv().GLOOTBOXES = {"Locked Hype Egg"}
+getgenv().GLOOTBOXES = {"All"}
 getgenv().GCONSUME_CHARMS = true
 ------------------------------------------------
 
 getgenv().GAUTO_UPGRADE_PETS = true
 
 -----------------------------------------------
-getgenv().GHUGE_COUNT = 500
+--getgenv().GHUGE_COUNT = 500
 
 
 
