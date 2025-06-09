@@ -371,7 +371,7 @@ getgenv().Settings = {
 		["Magic Shard"] = {Price = "+1%"},		
 		["All Huges"] = {Price = "+2%"},
 		
-		["Golden Titanic Basketball Cat"] = {Price = "9b", Priority = true},
+		["Golden Titanic Basketball Cat"] = {Price = "8b", Priority = true},
             
     },
         ["Switch Servers"] = {Active = true, MinuteDelay = 20, OnlyPRO = false},
