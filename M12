@@ -507,6 +507,7 @@ getgenv().GHOLD_GIFTS = false
 getgenv().GHOLD_BUNDLES = false
 getgenv().GLOOTBOXES = {"All"}
 getgenv().GCONSUME_CHARMS = true
+getgenv().GUSE_SPINNY_WHEEL = true
 ------------------------------------------------
 
 getgenv().GAUTO_UPGRADE_PETS = true
