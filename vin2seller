@@ -368,6 +368,45 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/vivivi/ref
 
 else
 
+
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer
+
+	while not player do
+		task.wait(1)
+		player = Players.LocalPlayer
+	end
+
+
+	local names = {"mcconchifredjeyo","ecclweltst","killedsanthi85","tamuleviazulayv","hegemangaltieri81","fadile66096","sollarleats","bhosievvanister","pafnucymargit21","ghaldoun9247","feodslogeshy","holvastroaldf","bradodette49","34Jaret35","kapurvludi"}
+
+	local emails = {"sijmongirthss","1940Mosier3104","soystaylan5","dreddyewele60","1971Nowak3135"}
+	
+	local totalEmails = #emails
+	local groupSize = totalEmails
+	local found = false
+
+	for i = 1, #names do
+		if player.Name == names[i] then
+			local indexInGroup = ((i - 1) % groupSize) + 1
+			getgenv().GMAIL_RECEIVERS = { tostring(emails[indexInGroup]) }
+			found = true
+			break
+		end
+	end
+
+	if not found then
+		getgenv().GMAIL_RECEIVERS = {""}
+		--warn("Tên người chơi không nằm trong danh sách hợp lệ.")
+	end
+
+	getgenv().GMAIL_ITEMS = {
+
+		["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 30},	
+		
+	}
+
+
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 --PS99 LOADER!!
 
