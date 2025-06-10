@@ -1,9 +1,6 @@
-
-
-
 -- thêm bạn bè
 task.spawn(function()
-	task.wait(50)
+	task.wait(300)
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -117,7 +114,7 @@ end)
 
 -- check toạ độ vs xút ra khi bị rơi
 task.spawn(function()
-	task.wait(50)
+	task.wait(150)
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
@@ -155,7 +152,7 @@ end)
 
 -- Ghép chìa
 task.spawn(function()
-	task.wait(50)
+	task.wait(150)
 
 local l_Save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
 local replicatedStorage = game:GetService("ReplicatedStorage")
@@ -220,7 +217,7 @@ end)
 
 -- Ghép sách + thuốc nếu lv < 99 
 task.spawn(function()
-	task.wait(50)
+	task.wait(150)
 local Save = require(game:GetService("ReplicatedStorage").Library.Client.Save)
 local level = Save.Get().Mastery and Save.Get().Mastery.Potions
 
@@ -311,40 +308,42 @@ end
 
 end)
 
-task.wait(20)
 
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
 
+while not player do
+    task.wait(1)
+    player = Players.LocalPlayer
+end
 
-	local names = {"GraysonDrift27_YT","Ash3rP0w3rPanda2018","Jayd3nByt383","HannahVortexLava","GabrielUltraDuck2019","Harper_Z00m2006","RavenBlastKing","XxInf3rnoL3g3ndStorm","XxEmmaPrismInfern0xX","FlameC0de2018","Noah_SKATER35","ELIJAHMOON2019_YT","GoldenZoomGhost28","LeviEch026","Raven_Fury85","DanielAceMystic","M00nKing2014","Jayden_Sky201941","MIA_Wraith60","EthanLavaCraze","AsherSaberQueen","WraithGlitch38","Xx_ZaydenGlitchSpark","Pix3lThund3r2013","ZoomDriftGamer","XxCod3DuckxX2023","Ven0mBl0ck46","LoganNovaChill","AquaZeroCircuit","XxBuilderBac0nFusi0n","N0ahNe0n14","KayleeFireChill2016","KayleeStar2024","Pixel_Hero71","Fusi0nCraftC00kie201","Mat30Sparkly2015","AceCyber36","FusionShadowCyber","Sparkly_Byte201215","RiderZap85","Addis0nOm3ga2016","NoahRift60","LavaBlizzard66","MinerPh0enix201957","Jayd3nNightKnight202","XxT0xicKnightS0nicxX","HenryBeastTiger90","AriaCircuitBlaze","Fusi0nCrystal201969","XxWilliamP0werxX2014"}
+local names = {"GraysonDrift27_YT","Ash3rP0w3rPanda2018","Jayd3nByt383","HannahVortexLava","GabrielUltraDuck2019","Harper_Z00m2006","RavenBlastKing","XxInf3rnoL3g3ndStorm","XxEmmaPrismInfern0xX","FlameC0de2018","Noah_SKATER35","ELIJAHMOON2019_YT","GoldenZoomGhost28","LeviEch026","Raven_Fury85","DanielAceMystic","M00nKing2014","Jayden_Sky201941","MIA_Wraith60","EthanLavaCraze","AsherSaberQueen","WraithGlitch38","Xx_ZaydenGlitchSpark","Pix3lThund3r2013","ZoomDriftGamer","XxCod3DuckxX2023","Ven0mBl0ck46","LoganNovaChill","AquaZeroCircuit","XxBuilderBac0nFusi0n","N0ahNe0n14","KayleeFireChill2016","KayleeStar2024","Pixel_Hero71","Fusi0nCraftC00kie201","Mat30Sparkly2015","AceCyber36","FusionShadowCyber","Sparkly_Byte201215","RiderZap85","Addis0nOm3ga2016","NoahRift60","LavaBlizzard66","MinerPh0enix201957","Jayd3nNightKnight202","XxT0xicKnightS0nicxX","HenryBeastTiger90","AriaCircuitBlaze","Fusi0nCrystal201969","XxWilliamP0werxX2014"}
+
+local emails = {"mcconchifredjeyo","ecclweltst","killedsanthi85","tamuleviazulayv","hegemangaltieri81","fadile66096","sollarleats","bhosievvanister","pafnucymargit21","ghaldoun9247","feodslogeshy","holvastroaldf","bradodette49","34Jaret35","kapurvludi"}
+
+local totalEmails = #emails
+local groupSize = totalEmails
+local found = false
+
+for i = 1, #names do
+    if player.Name == names[i] then
+        local indexInGroup = ((i - 1) % groupSize) + 1
+        getgenv().GMAIL_RECEIVERS = { tostring(emails[indexInGroup]) }
+        found = true
+        break
+    end
+end
+
+if not found then
+    --getgenv().GMAIL_RECEIVERS = {""}
+    --warn("Tên người chơi không nằm trong danh sách hợp lệ.")
+end
+
+getgenv().GMAIL_ITEMS = {
+
+	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 10},	
 	
-
-	local emails = {"mcconchifredjeyo","ecclweltst","killedsanthi85","tamuleviazulayv","hegemangaltieri81","fadile66096","sollarleats","bhosievvanister","pafnucymargit21","ghaldoun9247","feodslogeshy","holvastroaldf","bradodette49","34Jaret35","kapurvludi"}
-
-	local totalEmails = #emails
-	local groupSize = totalEmails
-	local found = false
-
-	for i = 1, #names do
-		if player.Name == names[i] then
-			local indexInGroup = ((i - 1) % groupSize) + 1
-			getgenv().GMAIL_RECEIVERS = { tostring(emails[indexInGroup]) }
-			found = true
-			break
-		end
-	end
-
-	if not found then
-		getgenv().GMAIL_RECEIVERS = {""}
-		--warn("Tên người chơi không nằm trong danh sách hợp lệ.")
-	end
-
-	getgenv().GMAIL_ITEMS = {
-
-		["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 10},	
-		
-	}
-
-
+}
 
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 --PS99 LOADER!!
@@ -385,7 +384,7 @@ getgenv().GCONSUME_CHARMS = true
 getgenv().GAUTO_UPGRADE_PETS = true
 
 -----------------------------------------------
---getgenv().GHUGE_COUNT = 500
+getgenv().GHUGE_COUNT = 500
 
 
 
