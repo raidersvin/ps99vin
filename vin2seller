@@ -1,5 +1,6 @@
 -- sau 3 tiếng đổi đến 1 sever vắng người chơi
-task.spawn()(function()
+task.spawn(function()
+
 task.wait(10800)
 
 local HttpService = game:GetService("HttpService")
