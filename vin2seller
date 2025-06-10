@@ -372,7 +372,7 @@ script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 --PS99 LOADER!!
 
 			-- INSERT YOUR CONFIG HERE --
-getgenv().GEVENT_FPS  = 5
+--getgenv().GEVENT_FPS  = 5
 getgenv().GGFX_MODE = 1
 getgenv().GZONE_TO = 999
 
