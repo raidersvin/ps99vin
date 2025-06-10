@@ -1,3 +1,130 @@
+-- sau 3 tiếng đổi đến 1 sever vắng người chơi
+task.spawn()(function()
+task.wait(10800)
+
+local HttpService = game:GetService("HttpService")
+local TeleportService = game:GetService("TeleportService")
+local Player = game:GetService("Players").LocalPlayer
+local mathRandom = math.random
+local NetworkClient = game:GetService("NetworkClient")
+
+-- Hàm kiểm tra ping của server (đây có thể là cách tạm thời, có thể cần chỉnh sửa tùy vào API của Roblox)
+local function getServerPing(serverId)
+    -- Giả sử chúng ta có thể lấy ping của server (lưu ý rằng đây chỉ là phương thức giả định, cần phải thay bằng cách thực tế để kiểm tra ping)
+    -- Bạn có thể cần sử dụng dịch vụ khác để lấy ping thực sự, ví dụ như kiểm tra trạng thái kết nối của người chơi.
+    return mathRandom(50, 150)  -- Ping giả định giữa 50ms và 150ms
+end
+
+local function teleportToMostPopulatedServer(placeId, retryLimit, userIdsToExclude)
+    retryLimit = retryLimit or 5 -- Số lần thử lại mặc định là 5
+    local attempts = 0
+    local minPlayers = 1 -- Số lượng người chơi tối thiểu (ví dụ: 1 người)
+
+    -- Lấy ID server hiện tại của người chơi
+    local function getCurrentServerId()
+        return game:GetService("Players").LocalPlayer.Team or "Unknown"  -- Mặc định là "Unknown" nếu không lấy được server ID
+    end
+
+    while attempts < retryLimit do
+        attempts += 1
+        local success, result = pcall(function()
+            -- Lấy danh sách các server với sortOrder=Asc và excludeFullServers=true để lọc các server không đầy
+            return HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. placeId .. '/servers/Public?sortOrder=Asc&limit=100&excludeFullServers=true')).data
+        end)
+
+        if success and result and #result > 0 then
+            -- Lọc các server hợp lệ có ít nhất minPlayers và không đầy
+            local validServers = {}
+            for _, server in ipairs(result) do
+                -- Kiểm tra xem server có đủ người chơi và không đầy
+                if server.playing >= minPlayers and server.playing < server.maxPlayers then
+                    -- Kiểm tra xem server có chứa người chơi cần loại trừ không
+                    local hasExcludedPlayer = false
+                    for _, playerId in ipairs(server.players) do
+                        if table.find(userIdsToExclude, playerId) then
+                            hasExcludedPlayer = true
+                            break
+                        end
+                    end
+
+                    -- Nếu không có người chơi bị loại trừ, thêm vào danh sách server hợp lệ
+                    if not hasExcludedPlayer then
+                        -- Thêm server vào danh sách với giá trị ping của nó
+                        table.insert(validServers, {
+                            server = server,
+                            ping = getServerPing(server.id)  -- Thêm giá trị ping vào
+                        })
+                    end
+                end
+            end
+
+            -- Nếu có server hợp lệ, sắp xếp các server theo ping (từ thấp đến cao)
+            if #validServers > 0 then
+                table.sort(validServers, function(a, b)
+                    return a.ping < b.ping  -- Sắp xếp theo ping (theo thứ tự tăng dần)
+                end)
+
+                -- Chọn server có ping thấp nhất (server đầu tiên trong danh sách đã sắp xếp)
+                local serverToTeleport = validServers[1].server
+
+                -- Teleport đến server đã chọn
+                local teleportSuccess, teleportError = pcall(function()
+                    TeleportService:TeleportToPlaceInstance(placeId, serverToTeleport.id, Player)
+                end)
+
+                if teleportSuccess then
+                    print("Teleport thành công đến server:", serverToTeleport.id)
+                    
+                    -- Lưu lại ID server gốc trước khi teleport
+                    local originalServerId = getCurrentServerId()
+
+                    -- Chờ 3 giây và kiểm tra xem người chơi đã chuyển server chưa
+                    task.wait(3)
+                    
+                    -- Kiểm tra lại xem người chơi có còn ở server gốc không
+                    if getCurrentServerId() == originalServerId then
+                        print("Không chuyển đến server mới, thử lại teleport...")
+                        -- Nếu người chơi vẫn ở server cũ, thử teleport sang một server hợp lệ khác
+                        table.remove(validServers, 1)  -- Loại bỏ server đầu tiên (server có ping thấp nhất)
+                        if #validServers > 0 then
+                            return teleportToMostPopulatedServer(placeId, retryLimit, userIdsToExclude)  -- Gọi lại hàm với server mới
+                        else
+                            print("Không còn server hợp lệ để thử teleport.")
+                            return false
+                        end
+                    else
+                        return true  -- Thành công khi chuyển đến server mới
+                    end
+                else
+                    warn("Teleport thất bại, thử lại... (Lỗi: " .. tostring(teleportError) .. ")")
+                end
+            else
+                print("Không có server hợp lệ!")
+            end
+        else
+            warn("Không thể lấy danh sách server! Thử lại lần " .. attempts)
+        end
+
+        task.wait(2) -- Chờ trước khi thử lại
+    end
+
+    warn("Không thể teleport sau " .. retryLimit .. " lần thử!")
+    return false
+end
+
+-- Danh sách các UserId cố định mà bạn muốn tránh
+local userIdsToExclude = {
+
+    7224796491
+}
+
+-- Gọi hàm với PlaceId cụ thể và danh sách các UserId bạn muốn tránh
+task.wait(1)
+teleportToMostPopulatedServer(140403681187145, 25, userIdsToExclude) -- Thử tối đa 25 lần
+
+
+
+end)
 
 
 
