@@ -311,7 +311,13 @@ end
 
 end)
 
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
 
+while not player do
+    task.wait(1)
+    player = Players.LocalPlayer
+end
 
 	local names = {"GraysonDrift27_YT","Ash3rP0w3rPanda2018","Jayd3nByt383","HannahVortexLava","GabrielUltraDuck2019","Harper_Z00m2006","RavenBlastKing","XxInf3rnoL3g3ndStorm","XxEmmaPrismInfern0xX","FlameC0de2018","Noah_SKATER35","ELIJAHMOON2019_YT","GoldenZoomGhost28","LeviEch026","Raven_Fury85","DanielAceMystic","M00nKing2014","Jayden_Sky201941","MIA_Wraith60","EthanLavaCraze","AsherSaberQueen","WraithGlitch38","Xx_ZaydenGlitchSpark","Pix3lThund3r2013","ZoomDriftGamer","XxCod3DuckxX2023","Ven0mBl0ck46","LoganNovaChill","AquaZeroCircuit","XxBuilderBac0nFusi0n","N0ahNe0n14","KayleeFireChill2016","KayleeStar2024","Pixel_Hero71","Fusi0nCraftC00kie201","Mat30Sparkly2015","AceCyber36","FusionShadowCyber","Sparkly_Byte201215","RiderZap85","Addis0nOm3ga2016","NoahRift60","LavaBlizzard66","MinerPh0enix201957","Jayd3nNightKnight202","XxT0xicKnightS0nicxX","HenryBeastTiger90","AriaCircuitBlaze","Fusi0nCrystal201969","XxWilliamP0werxX2014"}
 	
