@@ -67,7 +67,7 @@ local function runSequence(teleportPositions)
 		hideMap()
 		task.wait(1.5)
 		pressKeyE()
-		task.wait(0.5)
+		task.wait(1.5)
 	end
 end
 
