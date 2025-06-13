@@ -1,3 +1,4 @@
+
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
@@ -131,6 +132,7 @@ if game.PlaceId == 16498369169 then
 
 -- ✅ Danh sách vị trí dịch chuyển
 local teleportPositions = {
+
 Vector3.new(-9817.5, 20, -416.6),	
 Vector3.new(-8551, 20, -413),		
 Vector3.new(-8806, 20, 302),		
@@ -148,6 +150,7 @@ Vector3.new(-10214, 18.5, 4059),
 Vector3.new(-10785, 18.5, 4636),	
 
 Vector3.new(-11037.4, 17.6, 5778.6),	
+
 }
 
 
@@ -203,7 +206,7 @@ local teleportPositions = {
     Vector3.new(828, 20, 3249), 
     Vector3.new(288, 20, 3631), 
     Vector3.new(637, 20, 3710), 
-    Vector3.new(1097, -31, 4002)
+    Vector3.new(1097, -31, 4002),
     Vector3.new(512, 20, 4320), 
     Vector3.new(-38, 20, 4392), 
     Vector3.new(-35, 120, 5390),
@@ -225,6 +228,3 @@ end
 game:Shutdown()
 
 end
-
-
-
