@@ -63,7 +63,7 @@ local function runSequence()
         -- Đợi và nhấn E
         task.wait(1)
         pressKeyE()
-		
+		task.wait(0.5)
     end
 end
 
@@ -104,7 +104,7 @@ local function runSequence()
         -- Đợi và nhấn E
         task.wait(1)
         pressKeyE()
-		
+		task.wait(0.5)
     end
 end
 
@@ -151,7 +151,7 @@ local function runSequence()
         -- Đợi và nhấn E
         task.wait(1)
         pressKeyE()
-		
+		task.wait(0.5)
     end
 end
 
@@ -226,6 +226,7 @@ local function runSequence()
         -- Đợi và nhấn E
         task.wait(1)
         pressKeyE()
+		task.wait(0.5)
 		
     end
 end
