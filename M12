@@ -23,18 +23,38 @@ local function hideMap()
 hideMap()
 
 
+
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local LocalPlayer = Players.LocalPlayer
 
 
+task.wait(20)
+
+VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F, false, game)
+task.wait(0.3)
+VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game)
+task.wait(0.3)
+
+
+task.wait(2)
+
+
+VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F, false, game)
+task.wait(0.3)
+VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game)
+task.wait(0.3)
+
+
 -- ✅ Hàm nhấn phím E
 local function pressKeyE()
-    VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
-    task.wait(0.3)
-    VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.E, false, game)
-	task.wait(0.3)
+
+VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+task.wait(0.3)
+VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.E, false, game)
+task.wait(0.3)
+
 end
 
 -- 🔍 Kiểm tra đúng PlaceId
