@@ -1,4 +1,3 @@
-
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
@@ -30,17 +29,13 @@ local VirtualInputManager = game:GetService("VirtualInputManager")
 local LocalPlayer = Players.LocalPlayer
 
 
-task.wait(20)
+--task.wait(20)
 
 VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F, false, game)
 task.wait(0.3)
 VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game)
 task.wait(0.3)
-
-
-task.wait(2)
-
-
+task.wait(1)
 VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F, false, game)
 task.wait(0.3)
 VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game)
@@ -68,6 +63,7 @@ local function runSequence(teleportPositions)
 		rootPart.CFrame = CFrame.new(pos)
 
 		-- Đợi và nhấn E
+		hideMap()
 		task.wait(1.5)
 		pressKeyE()
 		task.wait(0.5)
@@ -225,3 +221,6 @@ if RunService:IsRunning() then
     runSequence(teleportPositions)
 
 end
+
+end
+
