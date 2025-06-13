@@ -39,8 +39,8 @@ task.spawn(function()
 		
 		{ id = "MVP Key", guiName = "Item3", row = 1, col = 0, color = Color3.fromRGB(0, 255, 255) },					--xanh	trái
 		{ id = "MVP Key Upper Half", guiName = "Item4", row = 1, col = 1, color = Color3.fromRGB(0, 255, 255) }, 		--xanh	phải
-		{ id = "Fragmented Dominus Ball", guiName = "Item1", row = 0, col = 0, color = Color3.fromRGB(255, 165, 0) },	-- cam
-		{ id = "Black Hole Angelus Ball", guiName = "Item2", row = 0, col = 1, color = Color3.fromRGB(255, 255, 255) },	--trang
+		{ id = "Ancestor Eagle", guiName = "Item1", row = 0, col = 0, color = Color3.fromRGB(255, 165, 0) },	-- cam
+		{ id = "Ancestor Eagle", guiName = "Item2", row = 0, col = 1, color = Color3.fromRGB(255, 255, 255) },	--trang
 	}
 
 	local function createItemFrame(itemConfig, itemCount)
@@ -343,11 +343,18 @@ end)
 		--warn("Tên người chơi không nằm trong danh sách hợp lệ.")
 	end
 
-	getgenv().GMAIL_ITEMS = {
+getgenv().GMAIL_ITEMS = {
 
-		["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 30},	
-		
-	}
+	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 30},	
+	
+	["Normal Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1},
+	["Golden Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsGold = true},
+	["RB Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsRainbow = true},
+	["Shiny Normal Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsShiny = true},
+	["Shiny Golden Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsGold = true, IsShiny = true},
+	["Shiny RB Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsRainbow = true, IsShiny = true},
+
+}
 
 
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
