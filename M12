@@ -48,7 +48,7 @@ task.wait(0.3)
 
 
 -- ✅ Hàm nhấn phím E
-local function pressKeyE()
+function pressKeyE()
 
 VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
 task.wait(0.3)
@@ -59,20 +59,19 @@ end
 
 
 -- ✅ Dịch chuyển + bấm E
-local function runSequence()
-    for _, pos in ipairs(teleportPositions) do
-        local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-        local rootPart = character:WaitForChild("HumanoidRootPart")
+local function runSequence(teleportPositions)
+	for _, pos in ipairs(teleportPositions) do
+		local character = player.Character or player.CharacterAdded:Wait()
+		local rootPart = character:WaitForChild("HumanoidRootPart")
 
-        -- Teleport đến vị trí
-        rootPart.CFrame = CFrame.new(pos)
+		-- Teleport đến vị trí
+		rootPart.CFrame = CFrame.new(pos)
 
-        -- Đợi và nhấn E
-		hideMap()
-        task.wait(1.5)
-        pressKeyE()
+		-- Đợi và nhấn E
+		task.wait(1.5)
+		pressKeyE()
 		task.wait(0.5)
-    end
+	end
 end
 
 
@@ -96,7 +95,8 @@ local teleportPositions = {
 -- 🔁 Chạy sau khi game load hoàn tất
 if RunService:IsRunning() then
     task.wait(2)
-    runSequence()
+    runSequence(teleportPositions)
+
 end
 
 game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("World3Teleport"):InvokeServer()
@@ -123,7 +123,8 @@ local teleportPositions = {
 -- 🔁 Chạy sau khi game load hoàn tất
 if RunService:IsRunning() then
     task.wait(2)
-    runSequence()
+    runSequence(teleportPositions)
+
 end
 game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("World2Teleport"):InvokeServer()
 end
@@ -158,7 +159,8 @@ Vector3.new(-11037.4, 17.6, 5778.6),	Vector3.new(-11037.4, 17.6, 5778.6),
 -- 🔁 Chạy sau khi game load hoàn tất
 if RunService:IsRunning() then
     task.wait(2)
-    runSequence()
+    runSequence(teleportPositions)
+
 end
 game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("World1Teleport"):InvokeServer()
 end
@@ -220,7 +222,6 @@ local teleportPositions = {
 -- 🔁 Chạy sau khi game load hoàn tất
 if RunService:IsRunning() then
     task.wait(2)
-    runSequence()
-end
+    runSequence(teleportPositions)
 
 end
