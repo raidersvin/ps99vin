@@ -222,5 +222,7 @@ if RunService:IsRunning() then
 
 end
 
+game:Shutdown()
+
 end
 
