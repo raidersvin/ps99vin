@@ -20,7 +20,7 @@ local function hideMap()
 		end
 	end
 
-
+setfpscap(15)
 hideMap()
 
 local Players = game:GetService("Players")
