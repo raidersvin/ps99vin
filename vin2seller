@@ -330,10 +330,10 @@ getgenv().Settings = {
 
 
 		["Rainbow Ancestor Eagle"] = {Price = "+1%", Priority = true},
-		["Shiny Rainbow Ancestor Eagle"] = {Price = "5b", Priority = true},
-		["Shiny Golden Ancestor Eagle"] = {Price = "625m", Priority = true},
+		["Shiny Rainbow Ancestor Eagle"] = {Price = "4b", Priority = true},
+		["Shiny Golden Ancestor Eagle"] = {Price = "500m", Priority = true},
 
-		["Mastery XP Potion"] = {Price = 400000, Priority = true},
+		["XPPotion Mastery"] = {Price = 400000, Priority = true},
 		["MVP Key"] = {Price = "+7%", Priority = true},
 
 
