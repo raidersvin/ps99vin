@@ -343,13 +343,6 @@ getgenv().GMAIL_ITEMS = {
 
 	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 30},	
 	
-	["Normal Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1},
-	["Golden Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsGold = true},
-	["RB Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsRainbow = true},
-	["Shiny Normal Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsShiny = true},
-	["Shiny Golden Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsGold = true, IsShiny = true},
-	["Shiny RB Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsRainbow = true, IsShiny = true},
-
 }
 
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
