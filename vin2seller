@@ -329,7 +329,7 @@ getgenv().Settings = {
     ["Items"] = {
 
 
-		["Rainbow Ancestor Eagle"] = {Price = "+1%", Priority = true},
+		["Rainbow Ancestor Eagle"] = {Price = "20m%", Priority = true},
 		["Shiny Rainbow Ancestor Eagle"] = {Price = "3b", Priority = true},
 		["Shiny Golden Ancestor Eagle"] = {Price = "375m", Priority = true},
 
