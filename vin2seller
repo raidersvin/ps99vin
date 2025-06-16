@@ -38,7 +38,7 @@ getgenv().Settings = {
 		["Magic Shard"] = {Price = "+1%"},		
 		["All Huges"] = {Price = "+2%"},
 		
-		["Golden Titanic Basketball Cat"] = {Price = "8b", Priority = true},
+		["Titanic Nuclear Dominus"] = {Price = "7b", Priority = true},
             
     },
 ["xoa_Map"] = true,
