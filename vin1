@@ -40,7 +40,7 @@ task.spawn(function()
 		{ id = "MVP Key", guiName = "Item3", row = 1, col = 0, color = Color3.fromRGB(0, 255, 255) },					--xanh	trái
 		{ id = "MVP Key Upper Half", guiName = "Item4", row = 1, col = 1, color = Color3.fromRGB(0, 255, 255) }, 		--xanh	phải
 		{ id = "Ancestor Eagle", guiName = "Item1", row = 0, col = 0, color = Color3.fromRGB(255, 165, 0) },	-- cam
-		{ id = "Ancestor Eagle", guiName = "Item2", row = 0, col = 1, color = Color3.fromRGB(255, 255, 255) },	--trang
+		{ id = "Dynamite Panda", guiName = "Item2", row = 0, col = 1, color = Color3.fromRGB(255, 255, 255) },	--trang
 	}
 
 	local function createItemFrame(itemConfig, itemCount)
