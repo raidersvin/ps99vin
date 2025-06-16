@@ -137,7 +137,7 @@ getgenv().GDAYCARE = true
 getgenv().GUSE_BOOSTS = true
 
 getgenv().GDO_TOWER_DEFENSE = true
-getgenv().GTOWER_DEFENSE_FUSE_PET = "Demolition Panda"
+
 getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Zeus Bear","Rich Corgi","Electric Eel","Tech Samurai Axolotl","Frostbyte Griffin","Demolition Panda"}
 ----------------------------------------------
 
