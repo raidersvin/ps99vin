@@ -155,7 +155,8 @@ getgenv().GUSE_BOOSTS = true
 
 getgenv().GDO_TOWER_DEFENSE = true
 
-getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Zeus Bear","Rich Corgi","Electric Eel","Tech Samurai Axolotl","Frostbyte Griffin","Demolition Panda"}
+getgenv().GTOWER_DEFENSE_FUSE_PET = "Electric Eel"
+getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Electric Eel"}
 ----------------------------------------------
 
 getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1273112470063546511/A3X4m45OzJPNWyofdnEIeGJ__agFyAn-ILrF6Rv34Cu1NiywwlUbhthc7SIZux6eGPfo"
