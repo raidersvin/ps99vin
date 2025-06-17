@@ -1,7 +1,6 @@
 -- Send event TOWER
 task.spawn(function()
 while true do 
-task.wait(1)
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
