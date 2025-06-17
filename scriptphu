@@ -1,6 +1,7 @@
 -- Send event TOWER
 task.spawn(function()
-task.wait(150)
+while true do 
+task.wait(1)
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -66,6 +67,9 @@ for _, item in ipairs(itemsToTrack) do
     end
 end
 
+
+task.wait(3600)
+end
 end)
 
 -- thêm bạn bè
