@@ -1,6 +1,6 @@
--- Send event TOWER
 task.spawn(function()
 while true do 
+task.wait(1)
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -42,34 +42,37 @@ for _, item in ipairs(itemsToTrack) do
     warn("🧾 Đã tìm thấy:", count, item.id, "với", #uids, "UID.")
 
     local excess = count - MAX_KEEP
-    if excess > 0 then
-        warn("📦 Có", excess, "vật phẩm dư sẽ được gửi đi.")
-        local remaining = excess
-        for _, entry in ipairs(uids) do
-            local sendAmount = math.min(entry.amount, remaining)
-            if sendAmount > 0 then
+	if excess > 0 then
+		warn("📦 Có", excess, "vật phẩm dư sẽ được gửi đi.")
+		local remaining = excess
+		for i = 2, #uids do  -- 👈 Bắt đầu từ UID thứ 2
+			local entry = uids[i]
+			local sendAmount = math.min(entry.amount, remaining)
+			if sendAmount > 0 then
 				task.wait(3)
-                warn("📤 Đang gửi", sendAmount, item.id, "UID:", entry.uid)
 				local message = string.format(messages[math.random(1, #messages)], username)
-                local success, err = Network.Invoke("Mailbox: Send", username, message, "Tower", entry.uid, 1)
-                if success then
-                    warn("✅ Đã gửi", sendAmount, item.id, "cho", username)
-                else
-                    warn("❌ Lỗi gửi:", err)
-                end
-                remaining -= sendAmount
-                if remaining <= 0 then break end
-            end
-        end
-    else
-        warn("⚠️ Không có vật phẩm dư để gửi:", item.id)
-    end
+				warn("📤 Đang gửi", sendAmount, item.id, "UID:", entry.uid)
+				local success, err = Network.Invoke("Mailbox: Send", username, message, "Tower", entry.uid, sendAmount)
+				if success then
+					warn("✅ Đã gửi", sendAmount, item.id, "cho", username)
+				else
+					warn("❌ Lỗi gửi:", err)
+				end
+				remaining -= sendAmount
+				if remaining <= 0 then break end
+			end
+		end
+	else
+		warn("⚠️ Không có vật phẩm dư để gửi:", item.id)
+	end
+
 end
 
 
 task.wait(3600)
 end
 end)
+
 
 -- thêm bạn bè
 task.spawn(function()
