@@ -26,13 +26,13 @@ getgenv().Settings = {
 		["Tower Nightmare Cyclops"]= { Price = "10%", Priority = true},
 
 
-		["Huge Machine Egg 5"] = {Price = "+5%", Priority = true},
+		["Huge Machine Egg 5"] = {Price = "1%", Priority = true},
 		["Rainbow Ancestor Eagle"] = {Price = "20m", Priority = true},
-		["Shiny Rainbow Ancestor Eagle"] = {Price = "2b", Priority = true},
-		["Shiny Golden Ancestor Eagle"] = {Price = "250m", Priority = true},
+		["Shiny Rainbow Ancestor Eagle"] = {Price = "1b", Priority = true},
+		["Shiny Golden Ancestor Eagle"] = {Price = "125m", Priority = true},
 
 		["XPPotion Mastery"] = {Price = 400000, Priority = true},
-		["MVP Key"] = {Price = "+7%", Priority = true},
+		["MVP Key"] = {Price = "+5%", Priority = true},
 
 		["Void Key"] = {Price = "+3%", Priority = true},
 		["Crystal Key"] = {Price = "+3%", Priority = true},
