@@ -167,7 +167,7 @@ getgenv().GHOLD_GIFTS = true
 getgenv().GHOLD_BUNDLES = true
 getgenv().GCONSUME_CHARMS = false
 getgenv().GCLEAR_FAVORITE_PETS = true
-getgenv().GLOOTBOXES = {"Locked Hype Egg"}	
+getgenv().GLOOTBOXES = {"All"}		
 ------------------------------------------------
 
 getgenv().GHATCH_CHARGED_EGGS = true
