@@ -86,9 +86,10 @@ end
 end)
 
 
-task.wait(3600)
-end
-end)
+
+
+
+
 
 
 -- thêm bạn bè
