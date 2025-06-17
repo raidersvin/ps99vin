@@ -16,9 +16,9 @@ if table.find(targetNames, player.Name) then
 
 getgenv().Settings = {
     ["Items"] = {
-
-
-		["Rainbow Ancestor Eagle"] = {Price = "20m%", Priority = true},
+	
+		["Huge Machine Egg 5"] = {Price = "+5%", Priority = true},
+		["Rainbow Ancestor Eagle"] = {Price = "20m", Priority = true},
 		["Shiny Rainbow Ancestor Eagle"] = {Price = "2b", Priority = true},
 		["Shiny Golden Ancestor Eagle"] = {Price = "250m", Priority = true},
 
