@@ -1,6 +1,8 @@
 task.spawn(function()
 while true do 
 task.wait(1)
+
+
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -9,64 +11,79 @@ local Client = ReplicatedStorage:WaitForChild("Library"):WaitForChild("Client")
 local SaveModule = require(Client:WaitForChild("Save"))
 local Network = require(Client:WaitForChild("Network"))
 
+-- 🧰 Inventory Tower
 local inventory = SaveModule.Get().Inventory.Tower or {}
-local itemsToTrack = {
-    {id = "Electric Eel"}
-}
 
-local username = "veriotiai779"
+-- 🎯 Pet cần tìm
+local targetId = "Electric Eel"
 
+-- 🎁 Người nhận + tin nhắn
+local username = "veriotiai779" -- <== thay người nhận thật
 local messages = {
-    "Happy Birthday %s!",
-    "Hope today brings %s!",
-    "Wishing you luck %s!",
-    "Congrats on your %s!",
-    "Give away %s!",
-    "You are amazing %s — here's a gift!"
+    "Here's a gift, %s!",
+    "Sending you something cool, %s!",
+    "Take this Electric Eel, %s!",
+    "You've got mail, %s!"
 }
 
-local MAX_KEEP = 1
+-- 📦 Thu thập danh sách pet
+local pets = {}
+local count = 0
 
-for _, item in ipairs(itemsToTrack) do
-    local count = 0
-    local uids = {}
+for uid, obj in pairs(inventory) do
+    if obj.id == targetId or obj.name == targetId then
+        local amount = obj._am or 1
+        local xp = (obj._uq and obj._uq.xp) or 0
 
-    for uid, obj in pairs(inventory) do
-        if obj.id == item.id or obj.name == item.id then
-            local amount = obj._am or 1
-            count += amount
-            table.insert(uids, {uid = uid, amount = amount})
+        table.insert(pets, {
+            uid = uid,
+            amount = amount,
+            xp = xp
+        })
+
+        count += amount
+        warn(string.format("🐾 UID: %s | XP: %d | Amount: %d", uid, xp, amount))
+    end
+end
+
+warn(string.format("✅ Tổng cộng tìm thấy %d %s với %d UID.", count, targetId, #pets))
+
+-- 📤 Gửi nếu có hơn 1 pet
+if #pets > 1 then
+    -- Sắp xếp giảm dần theo XP
+    table.sort(pets, function(a, b)
+        return a.xp > b.xp
+    end)
+
+    warn("🔒 Giữ lại pet có XP cao nhất:", pets[1].uid, "| XP:", pets[1].xp)
+
+    -- Gửi các pet còn lại
+    for i = 2, #pets do
+        local pet = pets[i]
+        task.wait(2)
+
+        local message = string.format(messages[math.random(1, #messages)], username)
+        warn(string.format("📤 Gửi UID: %s | XP: %d", pet.uid, pet.xp))
+
+        local success, err = Network.Invoke("Mailbox: Send", username, message, "Tower", pet.uid, pet.amount)
+        if success then
+            warn("✅ Đã gửi thành công:", pet.uid)
+        else
+            warn("❌ Lỗi khi gửi:", err)
         end
     end
-
-    warn("🧾 Đã tìm thấy:", count, item.id, "với", #uids, "UID.")
-
-    local excess = count - MAX_KEEP
-	if excess > 0 then
-		warn("📦 Có", excess, "vật phẩm dư sẽ được gửi đi.")
-		local remaining = excess
-		for i = 2, #uids do  -- 👈 Bắt đầu từ UID thứ 2
-			local entry = uids[i]
-			local sendAmount = math.min(entry.amount, remaining)
-			if sendAmount > 0 then
-				task.wait(3)
-				local message = string.format(messages[math.random(1, #messages)], username)
-				warn("📤 Đang gửi", sendAmount, item.id, "UID:", entry.uid)
-				local success, err = Network.Invoke("Mailbox: Send", username, message, "Tower", entry.uid, sendAmount)
-				if success then
-					warn("✅ Đã gửi", sendAmount, item.id, "cho", username)
-				else
-					warn("❌ Lỗi gửi:", err)
-				end
-				remaining -= sendAmount
-				if remaining <= 0 then break end
-			end
-		end
-	else
-		warn("⚠️ Không có vật phẩm dư để gửi:", item.id)
-	end
-
+else
+    warn("⚠️ Không có pet dư để gửi hoặc chỉ có 1 pet.")
 end
+
+
+
+
+
+
+task.wait(3600)
+end
+end)
 
 
 task.wait(3600)
