@@ -17,13 +17,13 @@ if table.find(targetNames, player.Name) then
 getgenv().Settings = {
     ["Items"] = {
 
-		["Mechanical Griffin"]= { Price = "-20%", Priority = true},
-		["Zeus Bear"]= { Price = "-20%", Priority = true},
-		["Arcade Angelus"]= { Price = "-20%", Priority = true},
-		["Nightmare Cyclops"]= { Price = "-20%", Priority = true},
-		["Nuclear Dominus"]= { Price = "-20%", Priority = true},
-		["Rich Corgi"]= { Price = "-20%", Priority = true},
-		["Nightmare Cyclops"]= { Price = "-20%", Priority = true},
+		["Tower Mechanical Griffin"]= { Price = "-20%", Priority = true},
+		["Tower Zeus Bear"]= { Price = "-20%", Priority = true},
+		["Tower Arcade Angelus"]= { Price = "-20%", Priority = true},
+		["Tower Nightmare Cyclops"]= { Price = "-20%", Priority = true},
+		["Tower Nuclear Dominus"]= { Price = "-20%", Priority = true},
+		["Tower Rich Corgi"]= { Price = "-20%", Priority = true},
+		["Tower Nightmare Cyclops"]= { Price = "-20%", Priority = true},
 
 
 		["Huge Machine Egg 5"] = {Price = "+5%", Priority = true},
