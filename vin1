@@ -151,7 +151,7 @@ getgenv().GMAIL_ITEMS = {
 
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 
-getgenv().GEVENT_FPS  = 9
+getgenv().GEVENT_FPS  = 8
 getgenv().GGFX_MODE = 1
 getgenv().GZONE_TO = 999
 getgenv().GMAX_EGG_SLOTS = 99
