@@ -20,7 +20,6 @@ local itemsToTrack = {
 	{id = "Zeus Bear"},
 	{id = "Arcade Angelus"},
 	{id = "Nightmare Cyclops"},
-	{id = "Nuclear Dominus"},
 	{id = "Rich Corgi"},
 	{id = "Nightmare Cyclops"},
 }
@@ -128,7 +127,6 @@ getgenv().GMAIL_ITEMS = {
 	["Zeus Bear"] = {Class = "Tower", Id = "Zeus Bear", MinAmount = 1},
 	["Arcade Angelus"] = {Class = "Tower", Id = "Arcade Angelus", MinAmount = 1},
 	["Nightmare Cyclops"] = {Class = "Tower", Id = "Nightmare Cyclops", MinAmount = 1},
-	["Nuclear Dominus"] = {Class = "Tower", Id = "Nuclear Dominus", MinAmount = 1},
 	["Rich Corgi"] = {Class = "Tower", Id = "Rich Corgi", MinAmount = 1},
 	["Nightmare Cyclops"] = {Class = "Tower", Id = "Nightmare Cyclops", MinAmount = 1},
 
