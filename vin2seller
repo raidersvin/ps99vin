@@ -156,8 +156,8 @@ getgenv().GUSE_BOOSTS = true
 
 getgenv().GDO_TOWER_DEFENSE = true
 
-getgenv().GTOWER_DEFENSE_FUSE_PET = "Electric Eel"
-getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Electric Eel"}
+getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Nuclear Dominus","Electric Eel"}
+getgenv().GTOWER_DEFENSE_AMOUNT_OF_CHEAP_TOWERS_TO_PLACE_FIRST = 14
 ----------------------------------------------
 
 getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1273112470063546511/A3X4m45OzJPNWyofdnEIeGJ__agFyAn-ILrF6Rv34Cu1NiywwlUbhthc7SIZux6eGPfo"
