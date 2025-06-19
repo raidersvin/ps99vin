@@ -104,15 +104,14 @@ else
 
 getgenv().GMAIL_ITEMS = {
 
-	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 1},		
+		
 
 	["Mechanical Griffin"] = {Class = "Tower", Id = "Mechanical Griffin", MinAmount = 1},
 	["Zeus Bear"] = {Class = "Tower", Id = "Zeus Bear", MinAmount = 1},
-	["Arcade Angelus"] = {Class = "Tower", Id = "Arcade Angelus", MinAmount = 1},
-	["Nightmare Cyclops"] = {Class = "Tower", Id = "Nightmare Cyclops", MinAmount = 1},
 	["Rich Corgi"] = {Class = "Tower", Id = "Rich Corgi", MinAmount = 1},
-	["Nightmare Cyclops"] = {Class = "Tower", Id = "Nightmare Cyclops", MinAmount = 1},
 
+
+	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 1},
 	["Normal Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1},
 	["Golden Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsGold = true},
 	["RB Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsRainbow = true},
