@@ -67,27 +67,27 @@ getgenv().GMAIL_ITEMS = {
 
 script_key = "TRWNvnabMDIvAgQLZyNjPtfafffYpkBF";
 
-getgenv().GEVENT_FPS  = 7
+getgenv().GEVENT_FPS  = 6
 getgenv().GGFX_MODE = 1
 getgenv().GZONE_TO = 999
 getgenv().GMAX_EGG_SLOTS = 99
 
 --getgenv().GUSE_FLAGS = {"Coins Flag"}
 
-getgenv().GPOTIONS = {"The Cocktail","Lucky"}
-getgenv().GPOTIONS_MAX_TIER = 19
-getgenv().GUSE_ULTIMATES = {"Tornado","Tsunami","Lightning Storm"}
-getgenv().GHOLD_GIFTS = true
-getgenv().GHOLD_BUNDLES = true
-getgenv().GCONSUME_CHARMS = false
-getgenv().GCLEAR_FAVORITE_PETS = true
-getgenv().GLOOTBOXES = {"All"}	
+--getgenv().GPOTIONS = {"The Cocktail","Lucky"}
+--getgenv().GPOTIONS_MAX_TIER = 19
+--getgenv().GUSE_ULTIMATES = {"Tornado","Tsunami","Lightning Storm"}
+--getgenv().GHOLD_GIFTS = true
+--getgenv().GHOLD_BUNDLES = true
+--getgenv().GCONSUME_CHARMS = false
+--getgenv().GCLEAR_FAVORITE_PETS = true
+--getgenv().GLOOTBOXES = {"All"}		
 ------------------------------------------------
 
-getgenv().GHATCH_CHARGED_EGGS = true
+--getgenv().GHATCH_CHARGED_EGGS = true
 getgenv().GENCHANTS = {"Shiny Hunter","Lucky Eggs","Lucky Eggs","Lucky Eggs","Huge Hunter","Huge Hunter","Huge Hunter","Lucky Eggs","Lucky Eggs"}
 getgenv().GDAYCARE = true
-getgenv().GUSE_BOOSTS = true
+--getgenv().GUSE_BOOSTS = true
 
 getgenv().GDO_TOWER_DEFENSE = true
 
