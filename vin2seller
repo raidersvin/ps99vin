@@ -47,7 +47,7 @@ getgenv().Settings = {
 		["Magic Shard"] = {Price = "+1%"},		
 		["All Huges"] = {Price = "+2%"},
 		
-		["Titanic Nuclear Dominus"] = {Price = "6.5b", Priority = true},
+		["Titanic Nuclear Dominus"] = {Price = "5b", Priority = true},
 		["Golden Titanic Nuclear Dominus"] = {Price = "9b", Priority = true},
             
     },
