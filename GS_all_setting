@@ -1,3 +1,5 @@
+
+
 spawn(function()
     wait(30)
     if _G.FPS7 == true then
@@ -12,11 +14,13 @@ spawn(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/scriptphu"))()
 end)
 
+getgenv().GDO_TOWER_DEFENSE = true
+getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Mechanical Griffin","Zeus Bear","Rich Corgi","TNT Capybara","Nuclear Dominus","Electric Eel","Frostbyte Griffin"}
+getgenv().GTOWER_DEFENSE_AMOUNT_OF_CHEAP_TOWERS_TO_PLACE_FIRST = 4
 
-script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
+
 
 getgenv().GLOOTBOXES = {"All"}
-
 
 --getgenv().GRANK_FIRST = true
 getgenv().GZONE_TO = 999
