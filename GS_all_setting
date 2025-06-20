@@ -60,9 +60,7 @@ getgenv().GENCHANTS = {"Criticals","Lucky Eggs","Huge Hunter","Diamonds","Treasu
 --getgenv().GENCHANTS = {"Criticals","Lucky Eggs","Huge Hunter","Tap Power","Tap Power","Coins"}
 --getgenv().GENCHANTS = {"Lucky Eggs","Lucky Eggs","Huge Hunter","Shiny Hunter","Diamonds","Treasure Hunter"}
 
-getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1378638061281480845/GvnmhjX5NIMq4S0VA_krzTSQK1d6epvtF4L-6LKsx4aigL5HICX8Q5KV4PeNgWVpbCH6"
 getgenv().GHUGE_COUNT = 500
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
---loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/34915da4ad87a5028e1fd64efbe3543f.lua"))()
+
 
 
