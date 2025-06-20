@@ -1,4 +1,3 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/scriptphu"))()
 
 
 local Players = game:GetService("Players")
@@ -102,14 +101,11 @@ else
 		--warn("Tên người chơi không nằm trong danh sách hợp lệ.")
 	end
 
-getgenv().GMAIL_ITEMS = {
-
-		
+getgenv().GMAIL_ITEMS = {		
 
 	["Mechanical Griffin"] = {Class = "Tower", Id = "Mechanical Griffin", MinAmount = 1},
 	["Zeus Bear"] = {Class = "Tower", Id = "Zeus Bear", MinAmount = 1},
 	["Rich Corgi"] = {Class = "Tower", Id = "Rich Corgi", MinAmount = 1},
-
 
 	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 1},
 	["Normal Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1},
@@ -117,8 +113,7 @@ getgenv().GMAIL_ITEMS = {
 	["RB Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsRainbow = true},
 	["Shiny Normal Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsShiny = true},
 	["Shiny Golden Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsGold = true, IsShiny = true},
-	["Shiny RB Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsRainbow = true, IsShiny = true},	
-	
+	["Shiny RB Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsRainbow = true, IsShiny = true},		
 	
 	["Daycare egg 5"] = {Class = "Egg", Id = "Huge Machine Egg 5", MinAmount = 1},
 	["Secret pet1"] = {Class = "Pet", Id = "Rainbow Swirl", MinAmount = 1, AllVariants = true},
@@ -130,40 +125,16 @@ getgenv().GMAIL_ITEMS = {
 
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 
-getgenv().GEVENT_FPS  = 8
-getgenv().GGFX_MODE = 1
-getgenv().GZONE_TO = 999
-getgenv().GMAX_EGG_SLOTS = 99
+getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1378638061281480845/GvnmhjX5NIMq4S0VA_krzTSQK1d6epvtF4L-6LKsx4aigL5HICX8Q5KV4PeNgWVpbCH6"
 
---getgenv().GUSE_FLAGS = {"Coins Flag"}
 
-getgenv().GPOTIONS = {"The Cocktail","Lucky"}
-getgenv().GPOTIONS_MAX_TIER = 19
-getgenv().GUSE_ULTIMATES = {"Tornado","Tsunami","Lightning Storm"}
-getgenv().GHOLD_GIFTS = true
-getgenv().GHOLD_BUNDLES = true
-getgenv().GCONSUME_CHARMS = false
-getgenv().GCLEAR_FAVORITE_PETS = true
-getgenv().GLOOTBOXES = {"All"}		
-------------------------------------------------
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/scriptphu"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/GS_all_setting"))()
 
-getgenv().GHATCH_CHARGED_EGGS = true
-getgenv().GENCHANTS = {"Shiny Hunter","Lucky Eggs","Lucky Eggs","Lucky Eggs","Huge Hunter","Huge Hunter","Huge Hunter","Lucky Eggs","Lucky Eggs"}
-getgenv().GDAYCARE = true
-getgenv().GUSE_BOOSTS = true
-
-getgenv().GDO_TOWER_DEFENSE = true
-getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Mechanical Griffin","Zeus Bear","Rich Corgi","TNT Capybara","Nuclear Dominus","Electric Eel","Frostbyte Griffin"}
-getgenv().GTOWER_DEFENSE_AMOUNT_OF_CHEAP_TOWERS_TO_PLACE_FIRST = 4
-
-----------------------------------------------
-
-getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1273112470063546511/A3X4m45OzJPNWyofdnEIeGJ__agFyAn-ILrF6Rv34Cu1NiywwlUbhthc7SIZux6eGPfo"
-getgenv().GHUGE_COUNT = 500
 
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
+--loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/34915da4ad87a5028e1fd64efbe3543f.lua"))()
+
+
 
 end
-
-
-
