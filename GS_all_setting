@@ -10,8 +10,6 @@ spawn(function()
         getgenv().GEVENT_FPS  = 5
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Hoith95/Pet-99/main/LookFPS-X5"))()
     end
-    wait(5)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/scriptphu"))()
 end)
 
 getgenv().GDO_TOWER_DEFENSE = true
