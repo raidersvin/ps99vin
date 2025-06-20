@@ -22,7 +22,7 @@ getgenv().GLOOTBOXES = {"Locked Hype Egg"}
 
 getgenv().GDO_TOWER_DEFENSE = true
 getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Mechanical Griffin","Zeus Bear","Rich Corgi","TNT Capybara","Nuclear Dominus","Arcade Angelus","Nightmare Cyclops","Forged Armadillo","Comet Dragon","Electric Eel","Shadow Pegasus","Torpedo Cat","Frostbyte Griffin","Tech Samurai Axolotl","Demolition Panda"}
-getgenv().GTOWER_DEFENSE_AMOUNT_OF_CHEAP_TOWERS_TO_PLACE_FIRST = 3
+getgenv().GTOWER_DEFENSE_AMOUNT_OF_CHEAP_TOWERS_TO_PLACE_FIRST = 14
 
 --getgenv().GRANK_FIRST = true
 getgenv().GZONE_TO = 999
