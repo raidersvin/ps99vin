@@ -1,74 +1,66 @@
-if _G.TAG then
-    warn("Script đã được chạy trước đó!")
-    return -- Dừng script nếu đã chạy
-end
+_G.FPS7 = true
+_G.script2Done = true
+_G.EventDone = true
 
--- Đánh dấu script đã được chạy
-_G.TAG = true
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/scriptphu"))()
-
+spawn(function()
+    wait(30)
+    if _G.FPS7 == true then
+        getgenv().GEVENT_FPS  = 5
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Hoith95/Pet-99/main/LookFPS-X7"))()
+    else
+        -- Script mặc định nếu không có _G.FPS5
+        getgenv().GEVENT_FPS  = 5
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Hoith95/Pet-99/main/LookFPS-X5"))()
+    end
+end)
 script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 
-
-getgenv().GMAIL_RECEIVERS = {"mcconchifredjeyo","ecclweltst","killedsanthi85","tamuleviazulayv","hegemangaltieri81","fadile66096","sollarleats","bhosievvanister","pafnucymargit21","ghaldoun9247","feodslogeshy","holvastroaldf","bradodette49","34Jaret35","kapurvludi","St0rm_V0id57","1950Shipley3114","RiderZap85","NinjaPandaEcho2013"}
-
-getgenv().GMAIL_ITEMS = {
-
-
-	["Mechanical Griffin"] = {Class = "Tower", Id = "Mechanical Griffin", MinAmount = 1},
-	["Zeus Bear"] = {Class = "Tower", Id = "Zeus Bear", MinAmount = 1},
-	["Rich Corgi"] = {Class = "Tower", Id = "Rich Corgi", MinAmount = 1},
-
-
-	["MVP Key Upper Half"] = {Class = "Misc", Id = "MVP Key Upper Half", MinAmount = 30},	
-	
-	["Normal Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 5},
-	["Golden Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsGold = true},
-	["RB Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsRainbow = true},
-	["Shiny Normal Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsShiny = true},
-	["Shiny Golden Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsGold = true, IsShiny = true},
-	["Shiny RB Ancestor Eagle"] = {Class = "Pet", Id = "Ancestor Eagle", MinAmount = 1, IsRainbow = true, IsShiny = true},	
-	
-	
-	["Daycare egg 5"] = {Class = "Egg", Id = "Huge Machine Egg 5", MinAmount = 1},
-	["Secret pet1"] = {Class = "Pet", Id = "Rainbow Swirl", MinAmount = 1, AllVariants = true},
-	["Secret pet2"] = {Class = "Pet", Id = "Banana", MinAmount = 1, AllVariants = true},
-	["Secret pet3"] = {Class = "Pet", Id = "Coin", MinAmount = 1, AllVariants = true},
-	["Secret pet4"] = {Class = "Pet", Id = "Yellow Lucky Block", MinAmount = 1, AllVariants = true},	
-
-}
-
-
-
-getgenv().GEVENT_FPS  = 6
-getgenv().GGFX_MODE = 1
-getgenv().GZONE_TO = 999
-getgenv().GMAX_EGG_SLOTS = 99
-
---getgenv().GUSE_FLAGS = {"Coins Flag"}
-
---getgenv().GPOTIONS = {"The Cocktail","Lucky"}
---getgenv().GPOTIONS_MAX_TIER = 19
---getgenv().GUSE_ULTIMATES = {"Tornado","Tsunami","Lightning Storm"}
---getgenv().GHOLD_GIFTS = true
---getgenv().GHOLD_BUNDLES = true
---getgenv().GCONSUME_CHARMS = false
---getgenv().GCLEAR_FAVORITE_PETS = true
---getgenv().GLOOTBOXES = {"All"}		
-------------------------------------------------
-
---getgenv().GHATCH_CHARGED_EGGS = true
-getgenv().GENCHANTS = {"Shiny Hunter","Lucky Eggs","Lucky Eggs","Lucky Eggs","Huge Hunter","Huge Hunter","Huge Hunter","Lucky Eggs","Lucky Eggs"}
-getgenv().GDAYCARE = true
---getgenv().GUSE_BOOSTS = true
+getgenv().GLOOTBOXES = {"Locked Hype Egg"}
 
 getgenv().GDO_TOWER_DEFENSE = true
-
-getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Nuclear Dominus","Electric Eel"}
+getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Mechanical Griffin","Zeus Bear","Rich Corgi","TNT Capybara","Nuclear Dominus","Arcade Angelus","Nightmare Cyclops","Forged Armadillo","Comet Dragon","Electric Eel","Shadow Pegasus","Torpedo Cat","Frostbyte Griffin","Tech Samurai Axolotl","Demolition Panda"}
 getgenv().GTOWER_DEFENSE_AMOUNT_OF_CHEAP_TOWERS_TO_PLACE_FIRST = 3
-----------------------------------------------
 
-getgenv().GHUGE_COUNT = 500
+--getgenv().GRANK_FIRST = true
+getgenv().GZONE_TO = 999
+getgenv().GREBIRTH_TO = 9
+getgenv().GRANK_TO= 33
 
+getgenv().GPROGRESS_MODE = "Hybrid" -- Hatch
+getgenv().GGFX_MODE = 1
+
+getgenv().GHATCH_SPEED_MS = 0
+getgenv().GHATCH_GOLDEN_EGGS = false
+getgenv().GCLEAR_FAVORITE_PETS = false
+getgenv().GMAX_HATCH = 99
+
+getgenv().GWAIT_AT_GATES_TILL_RANK = 5
+getgenv().GMAX_EGG_SLOTS = 99
+getgenv().GMAX_EQUIP_SLOTS = 99
+getgenv().GCOMBINE_KEYS = true
+getgenv().GHOLD_GIFTS = false
+getgenv().GHOLD_BUNDLES = false
+getgenv().GCONSUME_SEED_BAGS = true
+getgenv().GOPEN_ITEMS_IN_BULK = true
+getgenv().GMAX_ZONE_UPGRADE_COST = 300000
+getgenv().GCOLLECT_FREE_ITEMS = true
+getgenv().GIGNORE_ALL_INSTANCES = true
+getgenv().GIGNORE_SLEDRACE = false
+getgenv().GDO_DOODLE_BATTLE = true
+getgenv().GUSE_SPRINKLERS = true
+getgenv().GUSE_ULTIMATES = {"Tsunami", "Tornado", "Pet Surge", "Chest Spell","Ground Pound"}
+getgenv().GUSE_FLAGS = {"Fortune Flag","Diamonds Flag","Coins Flag"}
+getgenv().GEVENT_ITEMS_TO_USE = {"Mini Pinata","Party Box","Mini Lucky Block"}
+getgenv().GFRUITS = {"Watermelon","Candycane","Apple","Rainbow","Pineapple","Orange","Banana"}
+getgenv().GPOTIONS = {"Coins","Lucky","The Cocktail","Huge","Treasure Hunter","Walkspeed","Diamonds","Damage"}
+getgenv().GPOTIONS_MAX_TIER = 99
+--getgenv().GENCHANTS = {"Criticals","Lucky Eggs","Huge Hunter","Diamonds","Treasure Hunter","Strong Pets","Tap Power","Diamonds","Lucky Eggs"}
+--getgenv().GENCHANTS = {"Criticals","Lucky Eggs","Huge Hunter","Tap Power","Strong Pets","Super Lightning","Treasure Hunter","Diamonds","Lucky Eggs"}
+--getgenv().GENCHANTS = {"Criticals","Lucky Eggs","Huge Hunter","Tap Power","Coins","Strong Pets"}
+--getgenv().GENCHANTS = {"Criticals","Lucky Eggs","Huge Hunter","Tap Power","Tap Power","Coins"}
+getgenv().GENCHANTS = {"Lucky Eggs","Lucky Eggs","Huge Hunter","Shiny Hunter","Diamonds","Treasure Hunter"}
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
+--loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/34915da4ad87a5028e1fd64efbe3543f.lua"))()
+
+
+
