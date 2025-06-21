@@ -30,10 +30,6 @@ local Players = game:GetService("Players")
 	end
 
 getgenv().GMAIL_ITEMS = {		
-
-	["Mechanical Griffin"] = {Class = "Tower", Id = "Mechanical Griffin", MinAmount = 1},
-	["Zeus Bear"] = {Class = "Tower", Id = "Zeus Bear", MinAmount = 1},
-	["Rich Corgi"] = {Class = "Tower", Id = "Rich Corgi", MinAmount = 1},
 	
 	["Daycare egg 5"] = {Class = "Egg", Id = "Huge Machine Egg 5", MinAmount = 1},
 	["Secret pet1"] = {Class = "Pet", Id = "Rainbow Swirl", MinAmount = 1, AllVariants = true},
@@ -48,8 +44,8 @@ script_key = "TRWNvnabMDIvAgQLZyNjPtfafffYpkBF";
 getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1273112470063546511/A3X4m45OzJPNWyofdnEIeGJ__agFyAn-ILrF6Rv34Cu1NiywwlUbhthc7SIZux6eGPfo"
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/_EVENT_scriptphu"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/_EVENT_GS_all_setting"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/_farm_ngoai_scriptphu"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/_farm_ngoai_GS_all_setting"))()
 
 
 --loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
