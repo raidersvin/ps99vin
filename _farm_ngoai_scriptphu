@@ -1,4 +1,4 @@
-- Xem item cần tìm x 10 ở giữa cho giả lập
+-- Xem item cần tìm x 10 ở giữa cho giả lập
 
 task.spawn(function()
 	task.wait(1)
