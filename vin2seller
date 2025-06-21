@@ -48,7 +48,7 @@ getgenv().Settings = {
 		
 		["Titanic Nuclear Dominus"] = {Price = "5.6b", Priority = true},
 		["Golden Titanic Nuclear Dominus"] = {Price = "9b", Priority = true},
-		["Rainbow Titanic Nuclear Dominus"] = {Price = "19b", Priority = true},
+		["Rainbow Titanic Nuclear Dominus"] = {Price = "18.5b", Priority = true},
             
     },
 ["xoa_Map"] = true,
