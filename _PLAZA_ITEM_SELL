@@ -1,0 +1,54 @@
+
+getgenv().Settings = {
+    ["Items"] = {
+
+		["Tower Mechanical Griffin"]= { Price = "5%", Priority = true},
+		["Tower Zeus Bear"]= { Price = "5%", Priority = true},
+		["Tower Arcade Angelus"]= { Price = "5%", Priority = true},
+		["Tower Nightmare Cyclops"]= { Price = "5%", Priority = true},
+		["Tower Nuclear Dominus"]= { Price = "5%", Priority = true},
+		["Tower Rich Corgi"]= { Price = "5%", Priority = true},
+		["Tower Nightmare Cyclops"]= { Price = "5%", Priority = true},
+
+
+		["Huge Machine Egg 5"] = {Price = "1%", Priority = true},
+		["Rainbow Ancestor Eagle"] = {Price = "20m", Priority = true},
+		["Shiny Rainbow Ancestor Eagle"] = {Price = "1b", Priority = true},
+		["Shiny Golden Ancestor Eagle"] = {Price = "125m", Priority = true},
+
+		["XPPotion Mastery"] = {Price = 400000, Priority = true},
+		["MVP Key"] = {Price = "+5%", Priority = true},
+
+		["Void Key"] = {Price = "+3%", Priority = true},
+		["Crystal Key"] = {Price = "+3%", Priority = true},
+		["Hacker Key"] = {Price = "+3%", Priority = true},
+		["Fantasy Key"] = {Price = "+3%", Priority = true},
+
+		["Void Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
+		["Tech Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
+		["Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
+		["Fantasy Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
+
+		["Magic Shard"] = {Price = "+1%"},		
+		["All Huges"] = {Price = "+2%"},
+		
+		["Titanic Nuclear Dominus"] = {Price = "5.6b", Priority = true},
+		["Golden Titanic Nuclear Dominus"] = {Price = "9b", Priority = true},
+		["Rainbow Titanic Nuclear Dominus"] = {Price = "18.5b", Priority = true},
+            
+    },
+["xoa_Map"] = true,
+
+["send_gem"] = {
+        Play_mail = true,
+        User_name_mail = "nalsur71230",
+        gem_mail = "5b",
+	time_swap_plaza = 60,
+		
+}
+
+
+
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/vivivi/refs/heads/main/plaza"))()
