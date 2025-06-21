@@ -14,7 +14,7 @@ end)
 
 getgenv().GDO_TOWER_DEFENSE = true
 getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Mechanical Griffin","Zeus Bear","Rich Corgi","TNT Capybara","Nuclear Dominus","Electric Eel","Frostbyte Griffin"}
-getgenv().GTOWER_DEFENSE_AMOUNT_OF_CHEAP_TOWERS_TO_PLACE_FIRST = 4
+getgenv().GTOWER_DEFENSE_AMOUNT_OF_CHEAP_TOWERS_TO_PLACE_FIRST = 20
 
 
 
