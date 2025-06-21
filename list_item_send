@@ -1,0 +1,17 @@
+getgenv().GMAIL_ITEMS = {		
+
+["Daycare egg 5"] = {Class = "Egg", Id = "Huge Machine Egg 5", MinAmount = 1},
+["Secret pet1"] = {Class = "Pet", Id = "Rainbow Swirl", MinAmount = 1, AllVariants = true},
+["Secret pet2"] = {Class = "Pet", Id = "Banana", MinAmount = 1, AllVariants = true},
+["Secret pet3"] = {Class = "Pet", Id = "Coin", MinAmount = 1, AllVariants = true},
+["Secret pet4"] = {Class = "Pet", Id = "Yellow Lucky Block", MinAmount = 1, AllVariants = true},	
+
+
+["Secret Key"] = {Class = "Misc", Id = "Secret Key", MinAmount = 500},
+["Fantasy Key"] = {Class = "Misc", Id = "Fantasy Key", MinAmount = 500},
+["Void Key"] = {Class = "Misc", Id = "Void Key", MinAmount = 500},
+["Tech Key"] = {Class = "Misc", Id = "Tech Key", MinAmount = 500},
+["Crystal Key"] = {Class = "Misc", Id = "Crystal Key", MinAmount = 500},
+
+
+}
