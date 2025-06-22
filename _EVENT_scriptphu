@@ -1,4 +1,17 @@
+task.spawn(function()
+task.wait(100)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
+-- Remote
+local TD_SetSpeed = ReplicatedStorage.Network.TD_SetSpeed -- RemoteFunction 
+
+TD_SetSpeed:InvokeServer(
+    260,
+    2
+)
+
+
+end)
 
 -- Xem item cần tìm x 10 ở giữa cho giả lập
 
