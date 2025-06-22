@@ -36,8 +36,8 @@ getgenv().Settings = {
 		["Golden Titanic Nuclear Dominus"] = {Price = "7b", Priority = true},
 		["Rainbow Titanic Nuclear Dominus"] = {Price = "18b", Priority = true},
 
-		["Titanic Disco Ball Agony"] = {Price = "15b", Priority = true},
-		["Rainbow Titanic Disco Ball Agony"] = {Price = "40b", Priority = true},	
+		["Titanic Disco Ball Agony"] = {Price = "8b", Priority = true},
+		["Rainbow Titanic Disco Ball Agony"] = {Price = "30b", Priority = true},	
             
     },
 ["xoa_Map"] = true,
