@@ -1,14 +1,4 @@
-spawn(function()
-    wait(30)
-    if _G.FPS7 == true then
-        getgenv().GEVENT_FPS  = 5
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Hoith95/Pet-99/main/LookFPS-X7"))()
-    else
-        -- Script mặc định nếu không có _G.FPS5
-        getgenv().GEVENT_FPS  = 5
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Hoith95/Pet-99/main/LookFPS-X5"))()
-    end
-end)
+getgenv().GEVENT_FPS  = 7
 
 getgenv().GLOOTBOXES = {"All"}
 
