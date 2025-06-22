@@ -207,8 +207,8 @@ coordLabel.Parent = screenGui
 RunService.RenderStepped:Connect(function()
     local character = player.Character
     if character and character:FindFirstChild("HumanoidRootPart") then
-        local pos = character.HumanoidRootPart.Position
-        coordLabel.Text = string.format(" X: %.1f | Y: %.1f | Z: %.1f", pos.X, pos.Y, pos.Z)
+        --local pos = character.HumanoidRootPart.Position
+        --coordLabel.Text = string.format(" X: %.1f | Y: %.1f | Z: %.1f", pos.X, pos.Y, pos.Z)
     else
         coordLabel.Text = "not find user!"
 		game:Shutdown()  -- Thoát game
