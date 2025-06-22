@@ -2,14 +2,16 @@ task.spawn(function()
 task.wait(100)
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
--- Remote
+while true do
+
 local TD_SetSpeed = ReplicatedStorage.Network.TD_SetSpeed -- RemoteFunction 
 
 TD_SetSpeed:InvokeServer(
     260,
     2
 )
-
+task.wait(100)
+end
 
 end)
 
