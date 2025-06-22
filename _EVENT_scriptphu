@@ -103,7 +103,7 @@ task.spawn(function()
 		
 		{ id = "Electric Eel", guiName = "Item3", row = 1, col = 0, color = Color3.fromRGB(0, 255, 255) },		-- xanh
 		{ id = "Nightmare Cyclops", guiName = "Item4", row = 1, col = 1, color = Color3.fromRGB(192,192,192) }, 	-- bac
-		{ id = "Rich Corgi", guiName = "Item1", row = 0, col = 0, color = Color3.fromRGB(255, 165, 0) },	-- cam
+		{ id = "Arcade Angelus = "Item1", row = 0, col = 0, color = Color3.fromRGB(255, 165, 0) },			-- cam
 		{ id = "Nuclear Dominus", guiName = "Item2", row = 0, col = 1, color = Color3.fromRGB(255, 255, 255) },		-- trang
 	}
 
