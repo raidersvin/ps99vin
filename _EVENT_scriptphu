@@ -15,7 +15,8 @@ task.spawn(function()
 
         -- 🎯 Danh sách pet cần kiểm tra
         local petIds = {
-            "Nightmare Cyclops",
+            "Nightmare Cyclops","Nuclear Dominus","Arcade Angelus"
+		
         }
 
         -- 🎁 Người nhận + tin nhắn
