@@ -310,3 +310,83 @@ if level and level < 13034430 then
 end
 
 end)
+
+
+task.spawn(function()
+	task.wait(5)
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local PlayerGui = player:WaitForChild("PlayerGui")
+
+-- Lấy diamonds thật từ leaderstats
+local diamondsStat = player:WaitForChild("leaderstats"):FindFirstChild("💎 Diamonds") or player.leaderstats:WaitForChild("Diamonds")
+
+local GUI_NAME = "GemStatusUI"
+
+-- Màu định nghĩa
+local COLOR_RED = Color3.new(1, 0, 0)
+local COLOR_BLUE = Color3.fromRGB(173, 216, 230) -- xanh biển nhạt (Light Blue)
+
+-- Tạo hoặc cập nhật UI
+local function updateUI(diamonds)
+	local gui = PlayerGui:FindFirstChild(GUI_NAME)
+
+	-- Nếu chưa có GUI, tạo mới
+	if not gui then
+		gui = Instance.new("ScreenGui")
+		gui.Name = GUI_NAME
+		gui.IgnoreGuiInset = true
+		gui.ResetOnSpawn = false
+		gui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+		gui.Parent = PlayerGui
+
+		local stripe = Instance.new("Frame")
+		stripe.Name = "Stripe"
+		stripe.Size = UDim2.new(1, 0, 0, 50)
+		stripe.Position = UDim2.new(0, 0, 0, 0)
+		stripe.BackgroundTransparency = 0.2
+		stripe.BorderSizePixel = 0
+		stripe.ZIndex = 9999
+		stripe.Parent = gui
+
+		local nameLabel = Instance.new("TextLabel")
+		nameLabel.Name = "NameLabel"
+		nameLabel.Size = UDim2.new(1, 0, 1, 0)
+		nameLabel.BackgroundTransparency = 1
+		nameLabel.Font = Enum.Font.GothamBlack
+		nameLabel.TextColor3 = Color3.new(1, 1, 1)
+		nameLabel.TextStrokeTransparency = 0.5
+		nameLabel.TextScaled = true
+		nameLabel.ZIndex = 10000
+		nameLabel.Parent = stripe
+	end
+
+	-- Cập nhật màu và nội dung
+	local stripe = gui:FindFirstChild("Stripe")
+	local label = stripe and stripe:FindFirstChild("NameLabel")
+
+	if stripe and label then
+		if diamonds < 10_000_000 then
+			stripe.BackgroundColor3 = COLOR_RED
+			label.Text = player.Name
+		else
+			stripe.BackgroundColor3 = COLOR_BLUE
+			label.Text = player.Name
+		end
+	end
+end
+
+-- Kiểm tra mỗi 10 giây
+local function monitor()
+	while true do
+		task.wait(10)
+		local diamonds = diamondsStat.Value
+		updateUI(diamonds)
+	end
+end
+
+-- Khởi động
+task.spawn(monitor)
+
+
+end)
