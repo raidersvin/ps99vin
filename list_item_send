@@ -8,11 +8,11 @@ getgenv().GMAIL_ITEMS = {
 ["Secret pet4"] = {Class = "Pet", Id = "Yellow Lucky Block", MinAmount = 1, AllVariants = true},	
 
 
-["Secret Key"] = {Class = "Misc", Id = "Secret Key", MinAmount = 500},
+["Secret Key"] = {Class = "Misc", Id = "Secret Key", MinAmount = 1000},
 ["Fantasy Key"] = {Class = "Misc", Id = "Fantasy Key", MinAmount = 500},
 ["Void Key"] = {Class = "Misc", Id = "Void Key", MinAmount = 500},
 ["Tech Key"] = {Class = "Misc", Id = "Tech Key", MinAmount = 500},
-["Crystal Key"] = {Class = "Misc", Id = "Crystal Key", MinAmount = 500},
+["Crystal Key"] = {Class = "Misc", Id = "Crystal Key", MinAmount = 2500},
 
 
 }
