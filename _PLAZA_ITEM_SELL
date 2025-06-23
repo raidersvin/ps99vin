@@ -3,8 +3,6 @@ getgenv().Settings = {
     ["Items"] = {
 
 
-		["Tower Nuclear Dominus"]= { Price = "20m", Priority = true},
-
 
 		["Huge Machine Egg 5"] = {Price = "1%", Priority = true},
 		["Rainbow Ancestor Eagle"] = {Price = "20m", Priority = true},
