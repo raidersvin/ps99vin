@@ -313,7 +313,7 @@ end)
 
 
 task.spawn(function()
-	task.wait(5)
+	task.wait(25)
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local PlayerGui = player:WaitForChild("PlayerGui")
