@@ -2,13 +2,8 @@
 getgenv().Settings = {
     ["Items"] = {
 
-		["Tower Mechanical Griffin"]= { Price = "5%", Priority = true},
-		["Tower Zeus Bear"]= { Price = "5%", Priority = true},
-		["Tower Arcade Angelus"]= { Price = "5%", Priority = true},
-		["Tower Nightmare Cyclops"]= { Price = "5%", Priority = true},
-		["Tower Nuclear Dominus"]= { Price = "5%", Priority = true},
-		["Tower Rich Corgi"]= { Price = "5%", Priority = true},
-		["Tower Nightmare Cyclops"]= { Price = "5%", Priority = true},
+
+		["Tower Nuclear Dominus"]= { Price = "20m", Priority = true},
 
 
 		["Huge Machine Egg 5"] = {Price = "1%", Priority = true},
