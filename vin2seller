@@ -56,7 +56,7 @@ getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1273112470063546511/
 
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/_EVENT_scriptphu"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/_EVENT_GS_all_setting"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/test_setting_event"))()
 
 
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ba2dcad2127dcfc04301dfe52ce6c61c.lua"))()
