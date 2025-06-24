@@ -3,7 +3,7 @@ getgenv().GEVENT_FPS  = 7
 getgenv().GDO_TOWER_DEFENSE = true
 getgenv().GTOWER_DEFENSE_HARDCORE_MODE = true
 
-getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Blurred Owl","Nuclear Dominus","Nightmare Cyclops","Arcade Angelus","Electric Eel","Tech Samurai Axolotl","Abyssal Turtle","Crystal Giraffe"}
+getgenv().GTOWER_DEFENSE_INFINITY_PET = {"Electric Eel","Nuclear Dominus","Nightmare Cyclops","Blurred Owl","Arcade Angelus","Tech Samurai Axolotl","Abyssal Turtle","Crystal Giraffe"}
 getgenv().GTOWER_DEFENSE_AMOUNT_OF_CHEAP_TOWERS_TO_PLACE_FIRST = 10
 
 
