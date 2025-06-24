@@ -23,7 +23,7 @@ getgenv().Settings = {
 		["Fantasy Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
 
 		["Magic Shard"] = {Price = "+1%"},		
-		["All Huges"] = {Price = "+2%"},
+		["All Huges"] = {Price = "+2%", Min_sell = "12m"},
 		
 		["Titanic Nuclear Dominus"] = {Price = "5.5b", Priority = true},
 		["Golden Titanic Nuclear Dominus"] = {Price = "6b", Priority = true},
