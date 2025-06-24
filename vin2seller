@@ -55,7 +55,7 @@ script_key = "IAMAiZhmvPSarFAwYGimVtcLzrqIAnAQ";
 getgenv().GWEBHOOK_LINK = "https://discord.com/api/webhooks/1273112470063546511/A3X4m45OzJPNWyofdnEIeGJ__agFyAn-ILrF6Rv34Cu1NiywwlUbhthc7SIZux6eGPfo"
 
 
---loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/_EVENT_scriptphu"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/_EVENT_scriptphu"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/raidersvin/ps99vin/refs/heads/main/test_setting_event"))()
 
 
