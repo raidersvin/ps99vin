@@ -2,6 +2,7 @@
 getgenv().Settings = {
     ["Items"] = {
 
+		["Tower Nuclear Dominus"]= { Price = "+5%", Priority = true},
 
 
 		["Huge Machine Egg 5"] = {Price = "1%", Priority = true},
