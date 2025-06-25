@@ -171,6 +171,99 @@ task.spawn(function()
 end)
 
 
+task.spawn(function()
+	task.wait(1)
+
+	local Players = game:GetService("Players")
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+	local LocalPlayer = Players.LocalPlayer
+	local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+	local Client = ReplicatedStorage:WaitForChild("Library"):WaitForChild("Client")
+	local SaveModule = require(Client:WaitForChild("Save"))
+
+	local previousCounts = {}
+
+	-- cấu hình item cần theo dõi
+	local itemsToTrack = {
+		
+		{ id = "Blurred Owl", guiName = "Item3", row = 1, col = 0, color = Color3.fromRGB(0, 255, 255) },			--xanh	trái
+		{ id = "Nightmare Cyclops", guiName = "Item4", row = 1, col = 1, color = Color3.fromRGB(0, 255, 255) }, 		--xanh	phải
+		{ id = "Arcade Angelus", guiName = "Item1", row = 0, col = 0, color = Color3.fromRGB(255, 165, 0) },		-- cam
+		{ id = "Nuclear Dominus", guiName = "Item2", row = 0, col = 1, color = Color3.fromRGB(255, 255, 255) },				--trang
+	}
+
+	local function createItemFrame(itemConfig, itemCount)
+		local frameSize = 100
+		local spacing = 10
+		local cols = 2
+		local rows = 2
+
+		-- tính vị trí chính giữa màn hình
+		local offsetX = (itemConfig.col * (frameSize + spacing)) - ((cols - 1) * (frameSize + spacing) / 2)
+		local offsetY = (itemConfig.row * (frameSize + spacing)) - ((rows - 1) * (frameSize + spacing) / 2) + 80
+
+
+		local screenGui = Instance.new("ScreenGui")
+		screenGui.Name = itemConfig.guiName
+		screenGui.Parent = PlayerGui
+		screenGui.ResetOnSpawn = false
+		screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+		local frame = Instance.new("Frame")
+		frame.Name = "ItemFrame"
+		frame.Size = UDim2.new(0, frameSize, 0, frameSize)
+		frame.Position = UDim2.new(0.75, offsetX, 1, -offsetY)
+		frame.AnchorPoint = Vector2.new(0.5, 1)
+		frame.BackgroundColor3 = itemConfig.color
+		frame.BorderSizePixel = 2
+		frame.Parent = screenGui
+
+		local label = Instance.new("TextLabel")
+		label.Size = UDim2.new(1, 0, 1, 0)
+		label.BackgroundTransparency = 1
+		label.Text = tostring(itemCount)
+		label.TextColor3 = Color3.fromRGB(0, 0, 0)
+		label.TextScaled = true
+		label.Font = Enum.Font.GothamBold
+		label.Parent = frame
+	end
+
+	local function checkInventory()
+		local inventory = SaveModule.Get().Inventory or {}
+		local currentCounts = {}
+
+		-- xóa GUI cũ
+		for _, item in ipairs(itemsToTrack) do
+			local oldGui = PlayerGui:FindFirstChild(item.guiName)
+			if oldGui then oldGui:Destroy() end
+		end
+
+		for _, item in ipairs(itemsToTrack) do
+			local count = 0
+			for _, group in pairs(inventory) do
+				for _, obj in pairs(group) do
+					if obj.id == item.id then
+						count += (obj._am or 1)
+					end
+				end
+			end
+			currentCounts[item.id] = count
+			createItemFrame(item, count)
+		end
+
+		previousCounts = currentCounts
+	end
+
+	checkInventory()
+	while true do
+		task.wait(10)
+		checkInventory()
+	end
+end)
+
+
+
 
 
 
