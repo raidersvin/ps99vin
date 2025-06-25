@@ -1,8 +1,7 @@
 getgenv().Settings = {
     ["Items"] = {
 
-		["Tower Nuclear Dominus"]= { Price = "+5%", Priority = true},
-
+	
 
 		["Huge Machine Egg 5"] = {Price = "1%", Priority = true},
 		["Rainbow Ancestor Eagle"] = {Price = "20m", Priority = true},
@@ -34,7 +33,8 @@ getgenv().Settings = {
 		["Golden Titanic Disco Ball Agony"] = {Price = "6b", Priority = true},
 		["Rainbow Titanic Disco Ball Agony"] = {Price = "25b", Priority = true},
 	
-	
+		["Tower Nuclear Dominus"]= { Price = "+5%", Priority = true},
+
 		["Shiny Rainbow All Huges"]= { Price = "+5%"		,Min_sell = "3b", Max_sell = "8b"},
 		["Shiny Golden All Huges"]= { Price = "+5%"		,Min_sell = "300m", Max_sell = "2b"},
 		["Shiny All Huges"]= { Price = "+5%"			,Min_sell = "60m", Max_sell = "1b"},
