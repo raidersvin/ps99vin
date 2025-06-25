@@ -15,7 +15,7 @@ task.spawn(function()
 
         -- 🎯 Danh sách pet cần kiểm tra
         local petIds = {
-            "Nightmare Cyclops","Nuclear Dominus","Blurred Owl"
+            "Nightmare Cyclops","Blurred Owl"
 		
         }
 
@@ -82,97 +82,92 @@ end)
 
 
 
--- Xem item cần tìm x 10 ở giữa cho giả lập
-
 task.spawn(function()
-	task.wait(1)
+    while true do 
+        task.wait(1)
 
-	local Players = game:GetService("Players")
-	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+        local Players = game:GetService("Players")
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-	local LocalPlayer = Players.LocalPlayer
-	local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
-	local Client = ReplicatedStorage:WaitForChild("Library"):WaitForChild("Client")
-	local SaveModule = require(Client:WaitForChild("Save"))
+        local LocalPlayer = Players.LocalPlayer
+        local Client = ReplicatedStorage:WaitForChild("Library"):WaitForChild("Client")
+        local SaveModule = require(Client:WaitForChild("Save"))
+        local Network = require(Client:WaitForChild("Network"))
 
-	local previousCounts = {}
+        -- 🧰 Inventory Tower
+        local inventory = SaveModule.Get().Inventory.Tower or {}
 
-	-- cấu hình item cần theo dõi
-	local itemsToTrack = {
+        -- 🎯 Danh sách pet cần kiểm tra
+        local petIds = {
+            "Nuclear Dominus"
 		
-		{ id = "Blurred Owl", guiName = "Item3", row = 1, col = 0, color = Color3.fromRGB(0, 255, 255) },		-- xanh
-		{ id = "Nightmare Cyclops", guiName = "Item4", row = 1, col = 1, color = Color3.fromRGB(192,192,192) }, 	-- bac
-		{ id = "Arcade Angelus", guiName = "Item1", row = 0, col = 0, color = Color3.fromRGB(255, 165, 0) },	-- cam
-		{ id = "Nuclear Dominus", guiName = "Item2", row = 0, col = 1, color = Color3.fromRGB(255, 255, 255) },		-- trang
-	}
+        }
 
-	local function createItemFrame(itemConfig, itemCount)
-		local frameSize = 100
-		local spacing = 10
-		local cols = 2
-		local rows = 2
+        -- 🎁 Người nhận + tin nhắn
 
-		-- tính vị trí chính giữa màn hình
-		local offsetX = (itemConfig.col * (frameSize + spacing)) - ((cols - 1) * (frameSize + spacing) / 2)
-		local offsetY = (itemConfig.row * (frameSize + spacing)) - ((rows - 1) * (frameSize + spacing) / 2) + 80
+		local username_rd = {"sijmongirthss", "1940Mosier3104", "soystaylan5", "dreddyewele60", "1971Nowak3135"}
 
 
-		local screenGui = Instance.new("ScreenGui")
-		screenGui.Name = itemConfig.guiName
-		screenGui.Parent = PlayerGui
-		screenGui.ResetOnSpawn = false
-		screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		local username = username_rd[math.random(1, #username_rd)]
 
-		local frame = Instance.new("Frame")
-		frame.Name = "ItemFrame"
-		frame.Size = UDim2.new(0, frameSize, 0, frameSize)
-		frame.Position = UDim2.new(0.75, offsetX, 1, -offsetY)
-		frame.AnchorPoint = Vector2.new(0.5, 1)
-		frame.BackgroundColor3 = itemConfig.color
-		frame.BorderSizePixel = 2
-		frame.Parent = screenGui
 
-		local label = Instance.new("TextLabel")
-		label.Size = UDim2.new(1, 0, 1, 0)
-		label.BackgroundTransparency = 1
-		label.Text = tostring(itemCount)
-		label.TextColor3 = Color3.fromRGB(0, 0, 0)
-		label.TextScaled = true
-		label.Font = Enum.Font.GothamBold
-		label.Parent = frame
-	end
+        local messages = {
+            "Here's a gift, %s!",
+            "Sending you something cool, %s!",
+            "Take this one, %s!",
+            "You've got mail, %s!"
+        }
 
-	local function checkInventory()
-		local inventory = SaveModule.Get().Inventory or {}
-		local currentCounts = {}
+        for _, targetId in ipairs(petIds) do
+            local pets = {}
+            local count = 0
 
-		-- xóa GUI cũ
-		for _, item in ipairs(itemsToTrack) do
-			local oldGui = PlayerGui:FindFirstChild(item.guiName)
-			if oldGui then oldGui:Destroy() end
-		end
+            for uid, obj in pairs(inventory) do
+                if obj.id == targetId or obj.name == targetId then
+                    local amount = obj._am or 1
+                    local xp = (obj._uq and obj._uq.xp) or 0
 
-		for _, item in ipairs(itemsToTrack) do
-			local count = 0
-			for _, group in pairs(inventory) do
-				for _, obj in pairs(group) do
-					if obj.id == item.id then
-						count += (obj._am or 1)
-					end
-				end
-			end
-			currentCounts[item.id] = count
-			createItemFrame(item, count)
-		end
+                    table.insert(pets, {
+                        uid = uid,
+                        amount = amount,
+                        xp = xp
+                    })
 
-		previousCounts = currentCounts
-	end
+                    count += amount
+                    warn(string.format("🐾 [%s] UID: %s | XP: %d | Amount: %d", targetId, uid, xp, amount))
+                end
+            end
 
-	checkInventory()
-	while true do
-		task.wait(10)
-		checkInventory()
-	end
+            warn(string.format("✅ [%s] Tổng cộng tìm thấy %d pet với %d UID.", targetId, count, #pets))
+
+            if #pets > 1 then
+                table.sort(pets, function(a, b)
+                    return a.xp > b.xp
+                end)
+
+                warn(string.format("🔒 [%s] Giữ lại pet có XP cao nhất: %s | XP: %d", targetId, pets[1].uid, pets[1].xp))
+
+                for i = 2, #pets do
+                    local pet = pets[i]
+                    task.wait(2)
+
+                    local message = string.format(messages[math.random(1, #messages)], username)
+                    warn(string.format("📤 [%s] Gửi UID: %s | XP: %d", targetId, pet.uid, pet.xp))
+
+                    local success, err = Network.Invoke("Mailbox: Send", username, message, "Tower", pet.uid, pet.amount)
+                    if success then
+                        warn("✅ Đã gửi thành công:", pet.uid)
+                    else
+                        warn("❌ Lỗi khi gửi:", err)
+                    end
+                end
+            else
+                warn("⚠️ [" .. targetId .. "] Không có pet dư để gửi hoặc chỉ có 1 pet.")
+            end
+        end
+
+        task.wait(1800) -- lặp lại sau 1/2 giờ
+    end
 end)
 
 
