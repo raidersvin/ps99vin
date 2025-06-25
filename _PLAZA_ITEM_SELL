@@ -25,21 +25,23 @@ getgenv().Settings = {
 
 		["Magic Shard"] = {Price = "+1%"},		
 
-		["Shiny Rainbow All Huges"]= { Price = "5%", Priority = true	,Min_sell = "3b", Max_sell = "8b"},
-		["Shiny Golden All Huges"]= { Price = "5%", Priority = true		,Min_sell = "300m", Max_sell = "2b"},
-		["Shiny All Huges"]= { Price = "5%", Priority = true			,Min_sell = "60m", Max_sell = "1b"},
-		["Rainbow All Huges"]= { Price = "5%", Priority = true			,Min_sell = "60m", Max_sell = "1b"},
-		["Golden All Huges"]= { Price = "5%"					,Min_sell = "20m", Max_sell = "1b"},
-		["All Huges"]= { Price = "5%"									,Min_sell = "10m", Max_sell = "1b"},
-
-		
 		["Titanic Nuclear Dominus"] = {Price = "5.5b", Priority = true},
 		["Golden Titanic Nuclear Dominus"] = {Price = "6b", Priority = true},
 		["Rainbow Titanic Nuclear Dominus"] = {Price = "18b", Priority = true},
 
 		["Titanic Disco Ball Agony"] = {Price = "6b", Priority = true },
 		["Golden Titanic Disco Ball Agony"] = {Price = "6b", Priority = true},
-		["Rainbow Titanic Disco Ball Agony"] = {Price = "25b", Priority = true},	
+		["Rainbow Titanic Disco Ball Agony"] = {Price = "25b", Priority = true},
+
+		["Shiny Rainbow All Huges"]= { Price = "5%", Priority = true		,Min_sell = "3b", Max_sell = "8b"},
+		["Shiny Golden All Huges"]= { Price = "5%", Priority = true		,Min_sell = "300m", Max_sell = "2b"},
+		["Shiny All Huges"]= { Price = "5%", Priority = true			,Min_sell = "60m", Max_sell = "1b"},
+		["Rainbow All Huges"]= { Price = "5%", Priority = true			,Min_sell = "60m", Max_sell = "1b"},
+		["Golden All Huges"]= { Price = "5%"					,Min_sell = "20m", Max_sell = "1b"},
+		["All Huges"]= { Price = "5%"						,Min_sell = "10m", Max_sell = "1b"},
+
+		
+			
             
     },
 ["xoa_Map"] = true,
