@@ -13,9 +13,9 @@ getgenv().Settings = {
 		["MVP Key"] = {Price = "+5%", Priority = true},
 		
 		["Tech Key"] = {Price = "35k", Priority = true},	
-		["Secret Key"] = {Price = "30k%", Priority = true},	
+		["Secret Key"] = {Price = "30k", Priority = true},	
 		["Void Key"] = {Price = "50k", Priority = true},
-		["Crystal Key"] = {Price = "15k%", Priority = true},
+		["Crystal Key"] = {Price = "15k", Priority = true},
 		["Hacker Key"] = {Price = "70k", Priority = true},
 		["Fantasy Key"] = {Price = "70k", Priority = true},
 
