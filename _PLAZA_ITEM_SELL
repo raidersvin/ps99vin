@@ -12,12 +12,12 @@ getgenv().Settings = {
 		["XPPotion Mastery"] = {Price = 400000, Priority = true},
 		["MVP Key"] = {Price = "+5%", Priority = true},
 		
-		["Tech Key"] = {Price = "+5%", Priority = true},	
-		["Secret Key"] = {Price = "+5%", Priority = true},	
-		["Void Key"] = {Price = "+3%", Priority = true},
-		["Crystal Key"] = {Price = "+3%", Priority = true},
-		["Hacker Key"] = {Price = "+3%", Priority = true},
-		["Fantasy Key"] = {Price = "+3%", Priority = true},
+		["Tech Key"] = {Price = "35k", Priority = true},	
+		["Secret Key"] = {Price = "30k%", Priority = true},	
+		["Void Key"] = {Price = "50k", Priority = true},
+		["Crystal Key"] = {Price = "15k%", Priority = true},
+		["Hacker Key"] = {Price = "70k", Priority = true},
+		["Fantasy Key"] = {Price = "70k", Priority = true},
 
 		["Void Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
 		["Tech Spinny Wheel Ticket"] = {Price = "+3%", Priority = true},
